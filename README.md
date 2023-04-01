@@ -1,2 +1,4 @@
 # Dice Simulator
-https://user-images.githubusercontent.com/105762453/229304998-fcdb5502-764f-406a-be66-22b6ab79dd20.mp4
+https://user-images.githubusercontent.com/105762453/229305804-a74ada17-a968-4c4a-ad38-464ac3ddf2ea.mp4
+
+
