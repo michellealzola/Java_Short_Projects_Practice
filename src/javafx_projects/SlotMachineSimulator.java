@@ -5,8 +5,6 @@ import java.net.MalformedURLException;
 import java.util.Random;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
