@@ -1,0 +1,10 @@
+@font-face 
+{
+    src: url("NanumGothicCoding-Regular.ttf");
+}
+
+.root
+{
+    -fx-font-family:'NanumGothicCoding';
+    -fx-font-size: 12pt;
+}
