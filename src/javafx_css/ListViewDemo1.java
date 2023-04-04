@@ -33,16 +33,25 @@ public class ListViewDemo1 extends Application
 		
 		getButton.setOnAction(event -> 
 		{
-			String selected = listView.getSelectionModel().getSelectedItem();
+			if(listView.getSelectionModel().getSelectedIndex() != -1)
+			{
+				String selected = listView.getSelectionModel().getSelectedItem();
+				selectedFruitLabel.setText(selected);
+			}
+			else
+			{
+				selectedFruitLabel.setText("Nothing Selected");
+			}
 			
-			selectedFruitLabel.setText(selected);
+			
+			
 		});
 		
 		VBox vbox = new VBox(10, listView, selectedFruitLabel, getButton);
 		vbox.setPadding(new Insets(10));
 		vbox.setAlignment(Pos.CENTER);
 		
-		Scene scene = new Scene(vbox);
+		Scene scene = new Scene(vbox, 400, 200);
 		scene.getStylesheets().add("list_view_demo1.css");
 		
 		primaryStage.setScene(scene);
