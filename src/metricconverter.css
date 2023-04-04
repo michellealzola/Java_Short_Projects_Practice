@@ -1,0 +1,27 @@
+@font-face 
+{
+    src: url("NanumGothicCoding-Regular.ttf");
+}
+
+.root
+{
+    -fx-font-family:'NanumGothicCoding';
+    -fx-font-size: 12pt;
+}
+
+.button
+{
+    -fx-font-size: 16pt;
+    -fx-text-fill: gray;
+}
+
+.label
+{
+    -fx-text-fill: blue;
+    -fx-font-size: 16pt;
+}
+
+.border-vbox
+{
+    -fx-background-color: pink;
+}
