@@ -1,0 +1,18 @@
+@font-face 
+{
+    src: url("NanumGothicCoding-Regular.ttf");
+}
+
+.root
+{
+    -fx-font-family:'NanumGothicCoding';
+    -fx-font-size: 12pt;
+    -fx-background-color: #483C32;
+    -fx-color: white;
+}
+
+.check-box, .label
+{
+    -fx-text-fill: white;
+    -fx-font-size: 16pt;
+}

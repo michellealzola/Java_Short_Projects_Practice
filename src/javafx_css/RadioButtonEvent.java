@@ -54,7 +54,7 @@ public class RadioButtonEvent extends Application
 		});
 		
 		VBox radioVBox = new VBox(10, coffeeRadio, pieRadio);
-		radioVBox.setPadding(new Insets(30));
+		radioVBox.setPadding(new Insets(30)); 
 		
 		VBox mainVBox = new VBox(10, imageHBox, radioVBox);
 		
