@@ -1,0 +1,18 @@
+@font-face 
+{
+    src: url("NanumGothicCoding-Regular.ttf");
+}
+
+.root
+{
+    -fx-font-family:'NanumGothicCoding';
+    -fx-font-size: 12pt;
+    -fx-background-color: pink;
+    -fx-color: white;
+}
+
+.list-view, .label
+{
+    -fx-text-fill: black;
+    -fx-font-size: 16pt;
+}
