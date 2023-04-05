@@ -6,13 +6,45 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.base.jar"/>
-	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.controls.jar"/>
-	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.fxml.jar"/>
-	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.graphics.jar" sourcepath=""/>
-	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.media.jar"/>
-	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.swing.jar"/>
-	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.web.jar"/>
-	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx-swt.jar"/>
+	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.base.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.controls.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.fxml.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.graphics.jar" sourcepath="">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.media.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.swing.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx.web.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/openjfx-17.0.6_windows-x64_bin-sdk/javafx-sdk-17.0.6/lib/javafx-swt.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
