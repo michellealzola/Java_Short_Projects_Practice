@@ -123,9 +123,9 @@ public class TextMenu extends Application
 
 	private void buildFileMenu(Stage primaryStage)
 	{
-		fileMenu = new Menu("File");
+		fileMenu = new Menu("_File"); // mnemonic: ALT + F
 		
-		exitItem = new MenuItem("Exit");
+		exitItem = new MenuItem("E_xit"); // mnemonic: ALT + X
 		
 		exitItem.setOnAction(event -> 
 		{
