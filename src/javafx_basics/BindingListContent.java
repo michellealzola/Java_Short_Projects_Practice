@@ -39,3 +39,4 @@ public class BindingListContent
 				", lp2: " + lp2.get());        
 	}
 }
+//Learn JavaFX 17,  2nd Edition by Sharan and Spath
