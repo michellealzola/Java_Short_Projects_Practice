@@ -34,28 +34,28 @@ public class DormMealPlanCalculator extends Application
 
 		// create ComboBox controls for the dormitories and meal plans
 		ComboBox<String> dormitoryComboBox = new ComboBox<>();
-		dormitoryComboBox.getItems().addAll("Allen Hall", "Pike Hall", "Farthing Hall", "University Suites");
+		dormitoryComboBox.getItems().addAll("Allen Hall $1,800", "Pike Hall $2,200", "Farthing Hall $2,800", "University Suites $3,000");
 		dormitoryComboBox.valueProperty().bindBidirectional(selectedDormitory);
 
 		ComboBox<String> mealPlanComboBox = new ComboBox<>();
-		mealPlanComboBox.getItems().addAll("7 meals per week", "14 meals per week", "Unlimited meals");
+		mealPlanComboBox.getItems().addAll("7 meals per week $600", "14 meals per week $1,100", "Unlimited meals $1,800");
 		mealPlanComboBox.valueProperty().bindBidirectional(selectedMealPlan);
 
 		// create bindings to calculate the total charges
-		DoubleBinding dormitoryCharge = (DoubleBinding) Bindings.when(selectedDormitory.isEqualTo("Allen Hall"))
+		DoubleBinding dormitoryCharge = (DoubleBinding) Bindings.when(selectedDormitory.isEqualTo("Allen Hall $1,800"))
 		        .then(1800.0)
-		        .otherwise(Bindings.when(selectedDormitory.isEqualTo("Pike Hall"))
+		        .otherwise(Bindings.when(selectedDormitory.isEqualTo("Pike Hall $2,200"))
 		                .then(2200.0)
-		                .otherwise(Bindings.when(selectedDormitory.isEqualTo("Farthing Hall"))
+		                .otherwise(Bindings.when(selectedDormitory.isEqualTo("Farthing Hall $2,800"))
 		                        .then(2800.0)
-		                        .otherwise(Bindings.when(selectedDormitory.isEqualTo("University Suites"))
+		                        .otherwise(Bindings.when(selectedDormitory.isEqualTo("University Suites $3,000"))
 		                        		.then(3000.0)
 		                        		.otherwise(0))));
-		DoubleBinding mealPlanCharge = (DoubleBinding) Bindings.when(selectedMealPlan.isEqualTo("7 meals per week"))
+		DoubleBinding mealPlanCharge = (DoubleBinding) Bindings.when(selectedMealPlan.isEqualTo("7 meals per week $600"))
 		        .then(600.0)
-		        .otherwise(Bindings.when(selectedMealPlan.isEqualTo("14 meals per week"))
+		        .otherwise(Bindings.when(selectedMealPlan.isEqualTo("14 meals per week $1,100"))
 		                .then(1100.0)
-		                .otherwise(Bindings.when(selectedMealPlan.isEqualTo("Unlimited meals"))
+		                .otherwise(Bindings.when(selectedMealPlan.isEqualTo("Unlimited meals $1,800"))
 				                .then(1800.0)
 				                .otherwise(0)));
 		totalCharges.bind(dormitoryCharge.add(mealPlanCharge));
@@ -66,12 +66,12 @@ public class DormMealPlanCalculator extends Application
 
 		// create a layout for the controls and label
 		VBox root = new VBox(15, dormitoryComboBox, mealPlanComboBox, totalChargesLabel);
-		root.setAlignment(Pos.TOP_LEFT);
+		root.setAlignment(Pos.CENTER);
 		root.setPadding(new Insets(15));	
 		
 
 		// create a scene and show it
-		Scene scene = new Scene(root, 500, 250);
+		Scene scene = new Scene(root, 400, 200);
 		scene.getStylesheets().add("happyUni.css");
 		
 		primaryStage.setScene(scene);
