@@ -1,3 +1,8 @@
+# Dormitory and Meal Plan Calculator
+- Read about this app: https://michellealzoladesign.com/java-short-project-dormitory-and-meal-plan-calculator/
+
+https://user-images.githubusercontent.com/105762453/230532650-1b51375d-7f58-4ca9-9fa2-7fc6e2ed9082.mp4
+
 # Dice Simulator
 - Read about this app: https://michellealzoladesign.com/javafx-short-project-dice-simulator/
 
