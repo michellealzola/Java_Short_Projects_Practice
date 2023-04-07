@@ -6,13 +6,13 @@
 .root
 {
     -fx-font-family:'NanumGothicCoding';
-    -fx-font-size: 12pt;
+    -fx-font-size: 24pt;
     -fx-background-color: #326985;
     -fx-color: white;
 }
 
-.list-view, .label
+.combo-box, .label
 {
     -fx-text-fill: white;
-    -fx-font-size: 16pt;
+    
 }

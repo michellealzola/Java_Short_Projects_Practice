@@ -64,17 +64,19 @@ public class DormMealPlanCalculator extends Application
 		Label totalChargesLabel = new Label();
 		totalChargesLabel.textProperty().bind(Bindings.format("Total charges: $%.2f", totalCharges));
 
+		Label headingLabel = new Label("Happy University");
+		Label headingLabel2 = new Label("Dormitory and Meal Plan Calculator");
 		// create a layout for the controls and label
-		VBox root = new VBox(15, dormitoryComboBox, mealPlanComboBox, totalChargesLabel);
+		VBox root = new VBox(15, headingLabel, headingLabel2, dormitoryComboBox, mealPlanComboBox, totalChargesLabel);
 		root.setAlignment(Pos.CENTER);
 		root.setPadding(new Insets(15));	
 		
 
 		// create a scene and show it
-		Scene scene = new Scene(root, 400, 200);
+		Scene scene = new Scene(root, 1000, 400);
 		scene.getStylesheets().add("happyUni.css");
 		
-		primaryStage.setScene(scene);
+		primaryStage.setScene(scene); 
 		primaryStage.setTitle("Happy University Dormitory and Meal Plan Calculator");
 		primaryStage.show();
 
