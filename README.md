@@ -1,3 +1,8 @@
+# Skateboard Designer
+- Read about this app: https://michellealzoladesign.com/java-short-project-skateboard-designer/
+
+https://user-images.githubusercontent.com/105762453/230631529-1624f731-abdf-40c4-8b10-54fab62d7ec0.mp4
+
 # Dormitory and Meal Plan Calculator
 - Read about this app: https://michellealzoladesign.com/java-short-project-dormitory-and-meal-plan-calculator/
 
