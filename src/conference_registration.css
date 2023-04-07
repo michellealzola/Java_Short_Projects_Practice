@@ -1,0 +1,17 @@
+@font-face 
+{
+    src: url("XanhMono-Regular.ttf");
+}
+
+.root
+{
+    -fx-font-family:'Xanh Mono';
+    -fx-font-size: 20pt;
+    -fx-background-color: #E3DAC9;
+}
+
+.combo-box, checkbox, .label
+{
+    -fx-text-fill: #231709;
+    
+}
