@@ -66,7 +66,7 @@ public class DormMealPlanCalculator extends Application
 
 		Label headingLabel = new Label("Happy University");
 		Label headingLabel2 = new Label("Dormitory and Meal Plan Calculator");
-		// create a layout for the controls and label
+		// create a layout for the controls and labels
 		VBox root = new VBox(15, headingLabel, headingLabel2, dormitoryComboBox, mealPlanComboBox, totalChargesLabel);
 		root.setAlignment(Pos.CENTER);
 		root.setPadding(new Insets(15));	
