@@ -3,6 +3,7 @@ module Java_Projects_Practice
 	exports javafx_projects;
 	exports javafx_css;
 	exports javafx_basics;
+	exports javafx_stages;
 
 	requires javafx.base;
 	requires javafx.controls;
