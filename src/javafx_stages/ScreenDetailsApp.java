@@ -15,8 +15,7 @@ public class ScreenDetailsApp extends Application
 		Application.launch(args);
 
 	}
-
-	@Override
+	
 	public void start(Stage primaryStage)
 	{
 		ObservableList<Screen> screenList = Screen.getScreens();
