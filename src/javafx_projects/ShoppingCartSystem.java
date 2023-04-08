@@ -117,6 +117,8 @@ public class ShoppingCartSystem extends Application
 		{
 			cartListView.getItems().clear();
 	        totalPrice.set(0);
+	        
+	        totalPriceLabel.textProperty().bind(Bindings.format("Total Price: $%.2f", totalPrice));
 		});
 		
 		// Checkout
