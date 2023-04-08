@@ -1,3 +1,8 @@
+# Books Shopping Cart System
+- Read about this app: https://michellealzoladesign.com/java-short-project-books-shopping-cart-system/
+
+https://user-images.githubusercontent.com/105762453/230704402-ea8d22d0-4219-4c90-8245-3e6f187d3f32.mp4
+
 # Skateboard Designer
 - Read about this app: https://michellealzoladesign.com/java-short-project-skateboard-designer/
 
