@@ -73,6 +73,8 @@ public class ShoppingCartSystem extends Application
 				
 				totalPrice.set(totalPrice.get() + bookPrice * quantity);
 				
+				totalPriceLabel.textProperty().bind(Bindings.format("Total Price: $%.2f", totalPrice));
+				
 			}
 		});
 		
@@ -103,6 +105,8 @@ public class ShoppingCartSystem extends Application
 	            }
 
 	            totalPrice.set(totalPrice.get() - bookPrice);
+	            
+	            totalPriceLabel.textProperty().bind(Bindings.format("Total Price: $%.2f", totalPrice));
 		
 			}
 		});
@@ -117,6 +121,7 @@ public class ShoppingCartSystem extends Application
 		
 		// Checkout
 		Button checkoutButton = new Button("Checkout");
+		
 		checkoutButton.setOnAction(event ->
 		{
 			double subtotal = totalPrice.get();
@@ -126,9 +131,11 @@ public class ShoppingCartSystem extends Application
 	        cartListView.getItems().add(String.format("Subtotal: $%,.2f", subtotal));
 	        cartListView.getItems().add(String.format("Sales Tax: $%,.2f", salesTax));
 	        cartListView.getItems().add(String.format("Total: $%,.2f", total));
+	        
+	        totalPriceLabel.textProperty().bind(Bindings.format("Total Price: $%.2f", total));
 		});
 				
-		totalPriceLabel.textProperty().bind(Bindings.format("Total Price: $%.2f", totalPrice));
+		
 		
 		HBox buttonHBox = new HBox(10, addButton, removeButton, clearButton, checkoutButton);
 		
@@ -147,25 +154,3 @@ public class ShoppingCartSystem extends Application
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
