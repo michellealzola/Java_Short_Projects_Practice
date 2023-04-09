@@ -53,7 +53,7 @@ public class DraggingStage extends Application
 	protected void handleMouseDragged(MouseEvent event)
 	{
 		primaryStage.setX(event.getScreenX() - this.dragOffsetX);
-		primaryStage.setY(event.getScreenY() - this.dragOffsetX);
+		primaryStage.setY(event.getScreenY() - this.dragOffsetY);
 	}
 
 }
