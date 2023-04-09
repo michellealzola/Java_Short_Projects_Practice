@@ -52,7 +52,8 @@ public class StageModalityApp extends Application
 		
 		Scene scene = new Scene(root, 300, 200);
 		primaryStage.setScene(scene);               
-		primaryStage.setTitle("The Primary Stage");               
+		primaryStage.setTitle("The Primary Stage");    
+		primaryStage.setOpacity(0.85);
 		primaryStage.show();
 		
 		
