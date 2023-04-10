@@ -2,9 +2,7 @@ module Java_Projects_Practice
 {
 	exports javafx_projects;
 	exports javafx_css;
-	exports javafx_basics;
-	exports javafx_stages;
-
+	
 	requires javafx.base;
 	requires javafx.controls;
 	requires javafx.graphics;
@@ -14,5 +12,6 @@ module Java_Projects_Practice
 	requires javafx.web;      
 	requires javafx.fxml;      
 	requires jdk.jsobject;
-	requires jdk.jlink; 
+	requires jdk.jlink;
+	requires java.sql; 
 }
