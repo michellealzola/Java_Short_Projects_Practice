@@ -3,6 +3,7 @@ package database_projects;
 import java.sql.SQLException;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,18 +28,15 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private MenuItem productMenuItem;
 	private MenuItem inventoryMenuItem;
 	private MenuItem categoryMenuItem;
-	private MenuItem supplierMenuItem;
-	private Label itemTableLabel;
+	private MenuItem supplierMenuItem;	
 	private ListView<String> itemListView;
 	
 	
 	private Menu updateMenu;
 	private Menu deleteMenu;
 	
-	private ListView<Object> listView;
 	private VBox contentVBox;
-	private VBox itemListVBox;
-
+	
 	public static void main(String[] args)
 	{
 		Application.launch(args);
@@ -66,6 +64,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		borderPane.setCenter(contentVBox);
 		
 		Scene scene = new Scene(borderPane, 1000, 500);
+		scene.getStylesheets().add("nuts_bolts.css");
 		
 		primaryStage.setScene(scene);
 		primaryStage.show();		
@@ -84,23 +83,24 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		productMenuItem = new MenuItem("View Products");
 		inventoryMenuItem = new MenuItem("View Inventory");
 		categoryMenuItem = new MenuItem("View Categories");
-		supplierMenuItem = new MenuItem("View Suppliers");
+		supplierMenuItem = new MenuItem("View Suppliers");		
 		
 		readMenu.getItems().add(productMenuItem);
 		readMenu.getItems().add(inventoryMenuItem);
 		readMenu.getItems().add(categoryMenuItem);
-		readMenu.getItems().add(supplierMenuItem);
+		readMenu.getItems().add(supplierMenuItem);		
 		
 		itemListView = new ListView<>();
+		itemListView.setPrefHeight(1000);
 		
 		productMenuItem.setOnAction(e ->
 		{
-			
 			try
 			{
 				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getProductList());
 				
-			} catch (SQLException e1)
+			} 
+			catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -115,7 +115,8 @@ public class BoltsNutsInventoryManagementSystem extends Application
 			{
 				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getInventoryList());
 				
-			} catch (SQLException e1)
+			} 
+			catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -130,7 +131,8 @@ public class BoltsNutsInventoryManagementSystem extends Application
 			{
 				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getCategoryList());
 				
-			} catch (SQLException e1)
+			} 
+			catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -145,16 +147,17 @@ public class BoltsNutsInventoryManagementSystem extends Application
 			{
 				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getSupplierList());
 				
-			} catch (SQLException e1)
+			} 
+			catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			
-		});
-		
-		
+		});		
+
 		contentVBox = new VBox(10, itemListView);
+		contentVBox.setPadding(new Insets(15));
 		
 	}
 
