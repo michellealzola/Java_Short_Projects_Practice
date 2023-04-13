@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -22,13 +23,30 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private Menu fileMenu;
 	private MenuItem exitMenuItem;
 	
+	// Create menu
 	private Menu createMenu;
+	
 	private MenuItem productAdd;
+	private Label addProductLabel;
+	private Label productIDLabel;
+	private Label productNameLabel;
+	private Label productDescriptionLabel;
+	private Label categoryIDLabel;
+	private TextField productIDTextField;
+	private TextField productNameTextField;
+	private TextField productDescriptionTextField;
+	private TextField categoryIDTextField;
+	private HBox productIDHBox;
+	private HBox productNameHBox;
+	private HBox productDescriptionHBox;
+	private HBox categoryIDHBox;
+	
 	private MenuItem inventoryAdd;
 	private MenuItem categoryAdd;
-	private MenuItem supplierAdd;
-	private HBox createHBox;
+	private MenuItem supplierAdd;	
+	private VBox createVBox;
 	
+	// Read menu
 	private Menu readMenu;
 	private MenuItem productMenuItem;
 	private MenuItem inventoryMenuItem;
@@ -89,8 +107,17 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		createMenu.getItems().add(categoryAdd);
 		createMenu.getItems().add(supplierAdd);
 		
+		productAdd.setOnAction(e -> 
+		{
+			buildAddProductGUI();
+		});
 		
 		
+	}
+
+	private void buildAddProductGUI()
+	{
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -173,7 +200,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 			
 		});		
 
-		contentVBox = new VBox(10, itemListView);
+		contentVBox = new VBox(itemListView);
 		contentVBox.setPadding(new Insets(15));
 		
 	}
