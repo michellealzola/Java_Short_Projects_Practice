@@ -115,6 +115,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	
 	// Update menu
 	private Menu updateMenu;
+	private MenuItem changeQtyMenuItem;
 	
 	// Delete menu
 	private Menu deleteMenu;
@@ -443,6 +444,11 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private void buildUpdateMenu(Stage primaryStage)
 	{
 		updateMenu = new Menu("Update");
+		changeQtyMenuItem = new MenuItem("Change Stock Quantity");
+		
+		updateMenu.getItems().add(changeQtyMenuItem);
+		
+		
 		
 	}
 

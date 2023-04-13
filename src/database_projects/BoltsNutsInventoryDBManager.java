@@ -249,12 +249,48 @@ public class BoltsNutsInventoryDBManager
 			
 	}
 	
-	public static String changeQty(String inventoryID)
+	public static String changeQty(String inventoryID, int newQty) throws SQLException
 	{
 		
+		Connection conn = DriverManager.getConnection(DB_URL);
 		
+		String sqlStatement = "UPDATE Inventory SET QuantityInStock = ? WHERE InventoryID = ?" ;
 		
-		return "";
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, inventoryID);
+		pstmt.setInt(2, newQty);
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) added to the table.";
+	}
+	
+	public static ArrayList<String> getInventoryList(String inventoryID) throws SQLException
+	{
+		ArrayList<String> inventoryList = new ArrayList<>();
+		
+		Connection conn = DriverManager.getConnection(DB_URL);
+		
+		String sqlStatement = "SELECT * FROM Inventory WHERE InventoryID = ?" ;
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, inventoryID);
+		
+		ResultSet result = pstmt.executeQuery();
+		
+		while(result.next())
+		{
+			inventoryList.add(String.format("InventoryID: %s\n", result.getString("InventoryID"))
+					+ String.format("ProductID: %s\n", result.getString("ProductID"))
+					+ String.format("SupplierID: %s\n", result.getString("SupplierID"))
+					+ String.format("Quantity in Stock: %s", result.getInt("QuantityInStock")));
+		}	
+		
+		return inventoryList;
 	}
 	
 }
