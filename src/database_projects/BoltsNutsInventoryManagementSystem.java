@@ -23,6 +23,11 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private MenuItem exitMenuItem;
 	
 	private Menu createMenu;
+	private MenuItem productAdd;
+	private MenuItem inventoryAdd;
+	private MenuItem categoryAdd;
+	private MenuItem supplierAdd;
+	private HBox createHBox;
 	
 	private Menu readMenu;
 	private MenuItem productMenuItem;
@@ -74,6 +79,18 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private void buildCreateMenu(Stage primaryStage)
 	{
 		createMenu = new Menu("Create");
+		productAdd = new MenuItem("Add Product");
+		inventoryAdd = new MenuItem("Add Inventory");
+		categoryAdd = new MenuItem("Add Category");
+		supplierAdd = new MenuItem("Add Supplier");
+		
+		createMenu.getItems().add(productAdd);
+		createMenu.getItems().add(inventoryAdd);
+		createMenu.getItems().add(categoryAdd);
+		createMenu.getItems().add(supplierAdd);
+		
+		
+		
 		
 	}
 

@@ -155,10 +155,100 @@ public class BoltsNutsInventoryDBManager
 		
 	}
 	
-	public static void addProduct(String productID, String productName, String productDescription, String categoryID)
+	public static String addProduct(String productID, String productName, String productDescription, String categoryID) throws SQLException 
 	{
+		Connection conn = DriverManager.getConnection(DB_URL);
 		
+		String sqlStatement = "INSERT INTO Product VALUES (?, ?, ?, ?)";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, productID);
+		pstmt.setString(2, productName);
+		pstmt.setString(3, productDescription);
+		pstmt.setString(4, categoryID);
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) added to the table.";
+			
 	}
+	
+	public static String addInventory(String inventoryID, String productID, String supplierID, int quantityInStock) throws SQLException 
+	{
+		Connection conn = DriverManager.getConnection(DB_URL);
+		
+		String sqlStatement = "INSERT INTO Inventory VALUES (?, ?, ?, ?)";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, inventoryID);
+		pstmt.setString(2, productID);
+		pstmt.setString(3, supplierID);
+		pstmt.setInt(4, quantityInStock);
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) added to the table.";
+			
+	}
+	
+	public static String addCategory(String categoryID, String categoryName) throws SQLException 
+	{
+		Connection conn = DriverManager.getConnection(DB_URL);
+		
+		String sqlStatement = "INSERT INTO Category VALUES (?, ?)";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, categoryID);
+		pstmt.setString(2, categoryName);	
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) added to the table.";
+			
+	}
+
+	public static String addSupplier(String supplierID, String supplierName, String supplierAddress, String supplierCity, String supplierProvince, String supplierPostalCode, String supplierPhone, String supplierFax) throws SQLException 
+	{
+		Connection conn = DriverManager.getConnection(DB_URL);
+		
+		String sqlStatement = "INSERT INTO Supplier VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, supplierID);
+		pstmt.setString(2, supplierName);
+		pstmt.setString(3, supplierAddress);
+		pstmt.setString(4, supplierCity);
+		pstmt.setString(5, supplierProvince);
+		pstmt.setString(6, supplierPostalCode);
+		pstmt.setString(7, supplierPhone);
+		pstmt.setString(8, supplierFax);
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) added to the table.";
+			
+	}
+	
 }
 
 
