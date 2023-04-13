@@ -42,8 +42,27 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private HBox categoryIDHBox;
 	private VBox addProductVBox;
 	private Button addProductButton;
+	private Label addProductMsg;
 	
 	private MenuItem inventoryAdd;
+	private Label addInventoryLabel;
+	private Label inventoryIDLabel;
+	private Label inProductIDLabel;
+	private Label supplierIDLabel;
+	private Label qtyInStockLabel;
+	private TextField inventoryIDTextField;
+	private TextField inProductIDTextField;
+	private TextField supplierIDTextField;
+	private TextField qtyInStockTextField;
+	private HBox inventoryIDHBox;
+	private HBox inProductIDHBox;
+	private HBox supplierIDHBox;
+	private HBox qtyInStock;
+	private VBox addInventoryVBox;
+	private Label addInventoryMsg;
+	
+	
+	
 	private MenuItem categoryAdd;
 	private MenuItem supplierAdd;	
 	
@@ -135,14 +154,32 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	    categoryIDTextField = new TextField();
 	    categoryIDHBox = new HBox(10, categoryIDLabel, categoryIDTextField);
 	    
+	    addProductMsg = new Label();
+	    
 	    addProductButton = new Button("Add Product");
+	    addProductButton.setOnAction(eDddProductButton -> 
+	    {
+	    	try
+			{
+				addProductMsg.setText(BoltsNutsInventoryDBManager.addProduct(productIDTextField.getText(), 
+						productNameTextField.getText(), productDescriptionTextField.getText(), 
+						categoryIDTextField.getText()));
+			} catch (SQLException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	    });
 	    		
-	    addProductVBox = new VBox(10, addProductLabel, productIDHBox, productNameHBox, productDescriptionHBox, categoryIDHBox, addProductButton);
+	    addProductVBox = new VBox(10, addProductLabel, productIDHBox, productNameHBox, productDescriptionHBox, categoryIDHBox, addProductButton, addProductMsg);
 	    addProductVBox.setPadding(new Insets(25));
 	    
 	    productAdd.setOnAction(e -> {
 	        borderPane.setCenter(addProductVBox);
 	    });
+	    
+	    // Add Inventory
+	    
 		
 		
 	}
