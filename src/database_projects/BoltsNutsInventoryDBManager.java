@@ -249,6 +249,14 @@ public class BoltsNutsInventoryDBManager
 			
 	}
 	
+	public static String changeQty(String inventoryID)
+	{
+		
+		
+		
+		return "";
+	}
+	
 }
 
 
