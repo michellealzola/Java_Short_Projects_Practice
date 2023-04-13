@@ -28,9 +28,9 @@ public class BoltsNutsInventoryDBManager
 		while(result.next())
 		{
 			productList.add(String.format("%s", result.getString("ProductID"))
-								+ String.format("\t\t\t%s", result.getString("ProductName"))
-								+ String.format("\t\t%s", result.getString("ProductDescription"))
-								+ String.format("\t\t\t%s", result.getString("CategoryID")));
+								+ String.format("\t\t%s", result.getString("ProductName"))
+								+ String.format("\t%s", result.getString("ProductDescription"))
+								+ String.format("\t\t%s", result.getString("CategoryID")));
 			
 		}
 		
@@ -64,9 +64,9 @@ public class BoltsNutsInventoryDBManager
 		while(result.next())
 		{
 			inventoryList.add(String.format("%s", result.getString("InventoryID"))
-					+ String.format("\t\t\t%s", result.getString("ProductID"))
-					+ String.format("\t\t\t\t%s", result.getString("SupplierID"))
-					+ String.format("\t\t\t\t%s", result.getInt("QuantityInStock")));
+					+ String.format("\t\t%s", result.getString("ProductID"))
+					+ String.format("\t\t\t%s", result.getString("SupplierID"))
+					+ String.format("\t\t\t%s", result.getInt("QuantityInStock")));
 			
 		}
 		
@@ -98,7 +98,7 @@ public class BoltsNutsInventoryDBManager
 		while(result.next())
 		{
 			categoryList.add(String.format("%s", result.getString("CategoryID"))
-					+ String.format("\t\t\t%s", result.getString("CategoryName")));
+					+ String.format("\t\t%s", result.getString("CategoryName")));
 			
 		}
 		
@@ -125,22 +125,22 @@ public class BoltsNutsInventoryDBManager
 		ResultSet result = stmt.executeQuery(sqlStatement);
 		
 		supplierList.add(String.format("%s", result.getMetaData().getColumnName(1))
-				+ String.format("\t\t%s", result.getMetaData().getColumnName(2))
-				+ String.format("\t\t%s", result.getMetaData().getColumnName(3))
-				+ String.format("\t\t%s", result.getMetaData().getColumnName(4))
-				+ String.format("\t\t%s", result.getMetaData().getColumnName(5))
-				+ String.format("\t\t%s", result.getMetaData().getColumnName(6))
-				+ String.format("\t\t%s", result.getMetaData().getColumnName(7)));
+				+ String.format("\t%s", result.getMetaData().getColumnName(2))
+				+ String.format("\t\t\t%s", result.getMetaData().getColumnName(3))
+				+ String.format("\t\t\t\t\t%s", result.getMetaData().getColumnName(4))
+				+ String.format("\t\t\t%s", result.getMetaData().getColumnName(5))
+				+ String.format("\t\t\t%s", result.getMetaData().getColumnName(6))
+				+ String.format("\t\t\t%s", result.getMetaData().getColumnName(7)));
 		
 		while(result.next())
 		{
 			supplierList.add(String.format("%s", result.getString("SupplierID"))
-					+ String.format("\t\t\t%s", result.getString("SupplierName"))
-					+ String.format("\t%s", result.getString("SupplierAddress"))
+					+ String.format("\t%s", result.getString("SupplierName"))
+					+ String.format("%s", result.getString("SupplierAddress"))
 					+ String.format("%s", result.getString("SupplierCity"))
 					+ String.format("%s", result.getString("SupplierPostalCode"))
 					+ String.format("\t\t%s", result.getString("SupplierPhone"))
-					+ String.format("\t\t%s", result.getString("SupplierFax")));
+					+ String.format("\t\t\t%s", result.getString("SupplierFax")));
 			
 		}
 		
