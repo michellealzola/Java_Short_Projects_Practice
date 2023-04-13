@@ -179,7 +179,8 @@ public class BoltsNutsInventoryManagementSystem extends Application
 				addProductMsg.setText(BoltsNutsInventoryDBManager.addProduct(productIDTextField.getText(), 
 						productNameTextField.getText(), productDescriptionTextField.getText(), 
 						categoryIDTextField.getText()));
-			} catch (SQLException e1)
+			} 
+	    	catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -237,8 +238,39 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	    });
 		
 		// Add Category
+		addCategoryLabel = new Label("Add a Category");
+		addCategoryLabel.getStyleClass().add("heading");
 		
+		catCategoryIDLabel = new Label("Category ID:");
+		catCategoryIDTextField = new TextField();
+		catCategoryIDHBox = new HBox(10, catCategoryIDLabel, catCategoryIDTextField);
 		
+		categoryNameLabel = new Label("Category Name:");
+		categoryNameTextField = new TextField();
+		categoryNameHBox = new HBox(10, categoryNameLabel, categoryNameTextField);
+		
+		addCategoryMsg = new Label();
+		
+		addCategoryButton = new Button("Add Category");
+		addCategoryButton.setOnAction(eAddCategoryButton -> 
+		{
+			try
+			{
+				addCategoryMsg.setText(BoltsNutsInventoryDBManager.addCategory(catCategoryIDTextField.getText(), categoryNameTextField.getText()));
+			} 
+			catch (SQLException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+		
+		addCategoryVBox = new VBox(10, addCategoryLabel, catCategoryIDHBox, categoryNameHBox, addCategoryButton, addCategoryMsg);
+		addCategoryVBox.setPadding(new Insets(25));
+		
+		categoryAdd.setOnAction(e -> {
+	        borderPane.setCenter(addCategoryVBox);
+	    });
 	}
 
 
