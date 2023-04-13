@@ -126,8 +126,10 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private HBox upInventoryIDHBox;
 	private VBox upOrigDataVBox;
 	private HBox upNewQty;
+	private Button updateQtyButton;
 	private Label upNewQtyMsg;
 	private VBox updateVBox;
+	private Button displayOrigDataButton;
 	
 	// Delete menu
 	private Menu deleteMenu;
@@ -460,7 +462,62 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		
 		updateMenu.getItems().add(changeQtyMenuItem);
 		
+		updateQtyLabel = new Label("Change Stock Quantity");
+		updateQtyLabel.getStyleClass().add("heading");
 		
+		upInventoryIDLabel = new Label("Inventory ID:");
+		upInventoryIDTextField = new TextField();
+		upInventoryIDHBox = new HBox(10, upInventoryIDLabel, upInventoryIDTextField);
+		
+		upOrigDataLabel = new Label("Original Data:");
+		inventoryListView = new ListView<>();
+		
+		displayOrigDataButton = new Button("Display Original Data");
+		displayOrigDataButton.setOnAction(eDisplayOrigDataButton -> 
+		{
+			try
+			{
+				inventoryListView.getItems().addAll(BoltsNutsInventoryDBManager.getInventoryList(upInventoryIDTextField.getText()));
+			} 
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});		
+		upOrigDataVBox = new VBox(10, upOrigDataLabel, displayOrigDataButton, inventoryListView);
+		
+		upNewQtyLabel = new Label("Enter New Quantity:");
+		upNewQtyTextField = new TextField();
+		upNewQty = new HBox(10, upNewQtyLabel, upNewQtyTextField);
+		
+		upNewQtyMsg = new Label();
+		
+		updateQtyButton = new Button("Update Quantity");
+		updateQtyButton.setOnAction(eUpdateQtyButton -> 
+		{
+			try
+			{
+				upNewQtyMsg.setText(BoltsNutsInventoryDBManager.changeQty(upInventoryIDTextField.getText(), Integer.parseInt(upNewQtyTextField.getText())));
+			} 
+			catch (NumberFormatException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+		
+		updateVBox = new VBox(10, updateQtyLabel, upInventoryIDHBox, upOrigDataVBox, upNewQty, updateQtyButton, upNewQtyMsg);
+		updateVBox.setPadding(new Insets(25));
+		
+		changeQtyMenuItem.setOnAction(e -> 
+	    {
+	        borderPane.setCenter(updateVBox);
+	    });
 		
 	}
 

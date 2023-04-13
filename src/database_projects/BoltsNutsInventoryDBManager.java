@@ -257,8 +257,8 @@ public class BoltsNutsInventoryDBManager
 		String sqlStatement = "UPDATE Inventory SET QuantityInStock = ? WHERE InventoryID = ?" ;
 		
 		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
-		pstmt.setString(1, inventoryID);
-		pstmt.setInt(2, newQty);
+		pstmt.setInt(1, newQty);
+		pstmt.setString(2, inventoryID);
 		
 		int rows = pstmt.executeUpdate();
 		
@@ -267,7 +267,7 @@ public class BoltsNutsInventoryDBManager
 		pstmt.close();
 		conn.close();
 		
-		return rows + " row(s) added to the table.";
+		return rows + " row(s) updated.";
 	}
 	
 	public static ArrayList<String> getInventoryList(String inventoryID) throws SQLException
