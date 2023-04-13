@@ -20,6 +20,11 @@ public class BoltsNutsInventoryDBManager
 		
 		ResultSet result = stmt.executeQuery(sqlStatement);
 		
+		productList.add(result.getMetaData().getColumnName(1) + "          "
+							+ result.getMetaData().getColumnName(2) + "          "
+							+ result.getMetaData().getColumnName(3) + "          "
+							+ result.getMetaData().getColumnName(4));
+		
 		while(result.next())
 		{
 			productList.add(result.getString("ProductID")

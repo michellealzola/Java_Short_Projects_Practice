@@ -5,12 +5,14 @@ import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class BoltsNutsInventoryManagementSystem extends Application
@@ -26,12 +28,16 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private MenuItem inventoryMenuItem;
 	private MenuItem categoryMenuItem;
 	private MenuItem supplierMenuItem;
-	private ListView<String> productListView;
+	private Label itemTableLabel;
+	private ListView<String> itemListView;
+	
 	
 	private Menu updateMenu;
 	private Menu deleteMenu;
 	
 	private ListView<Object> listView;
+	private VBox contentVBox;
+	private VBox itemListVBox;
 
 	public static void main(String[] args)
 	{
@@ -57,7 +63,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		
 		BorderPane borderPane = new BorderPane();
 		borderPane.setTop(menuBar);
-		borderPane.setCenter(listView);
+		borderPane.setCenter(contentVBox);
 		
 		Scene scene = new Scene(borderPane, 1000, 500);
 		
@@ -81,20 +87,74 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		supplierMenuItem = new MenuItem("View Suppliers");
 		
 		readMenu.getItems().add(productMenuItem);
+		readMenu.getItems().add(inventoryMenuItem);
+		readMenu.getItems().add(categoryMenuItem);
+		readMenu.getItems().add(supplierMenuItem);
 		
-		listView = new ListView<>();
+		itemListView = new ListView<>();
 		
 		productMenuItem.setOnAction(e ->
 		{
+			
 			try
 			{
-				listView.getItems().addAll(BoltsNutsInventoryDBManager.getProductList());
+				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getProductList());
+				
 			} catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			
 		});
+		
+		inventoryMenuItem.setOnAction(e ->
+		{
+			
+			try
+			{
+				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getInventoryList());
+				
+			} catch (SQLException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		});
+		
+		categoryMenuItem.setOnAction(e ->
+		{
+			
+			try
+			{
+				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getCategoryList());
+				
+			} catch (SQLException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		});
+		
+		supplierMenuItem.setOnAction(e ->
+		{
+			
+			try
+			{
+				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getSupplierList());
+				
+			} catch (SQLException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		});
+		
+		
+		contentVBox = new VBox(10, itemListView);
 		
 	}
 
