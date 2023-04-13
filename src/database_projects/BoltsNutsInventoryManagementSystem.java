@@ -72,11 +72,38 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private HBox categoryNameHBox;
 	private VBox addCategoryVBox;
 	private Button addCategoryButton;
-	private Label addCategoryMsg;
+	private Label addCategoryMsg;	
 	
+	private MenuItem supplierAdd;
+	private Label addSupplierLabel;
+	private Label supSupplierIDLabel;
+	private Label supplierNameLabel;
+	private Label supplierAddressLabel;
+	private Label supplierCityLabel;
+	private Label supplierProvinceLabel;
+	private Label supplierPostCodeLabel;
+	private Label supplierPhoneLabel;
+	private Label supplierFaxLabel;
+	private TextField supSupplierIDTextField;
+	private TextField supplierNameTextField;
+	private TextField supplierAddressTextField;
+	private TextField supplierCityTextField;
+	private TextField supplierProvinceTextField;
+	private TextField supplierPostCodeTextField;
+	private TextField supplierPhoneTextField;
+	private TextField supplierFaxTextField;
+	private HBox supSupplierIDHBox;
+	private HBox supplierNameHBox;
+	private HBox supplierAddressHBox;
+	private HBox supplierCityHBox;
+	private HBox supplierProvinceHBox;
+	private HBox supplierPostCodeHBox;
+	private HBox supplierPhoneHBox;
+	private HBox supplierFaxHBox;
+	private VBox addSupplierVBox;
+	private Button addSupplierButton;
+	private Label addSupplierMsg;
 	
-	
-	private MenuItem supplierAdd;	
 	
 	
 	
@@ -271,6 +298,9 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		categoryAdd.setOnAction(e -> {
 	        borderPane.setCenter(addCategoryVBox);
 	    });
+		
+		// Add Supplier
+		
 	}
 
 
