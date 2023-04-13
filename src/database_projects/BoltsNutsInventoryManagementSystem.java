@@ -61,10 +61,21 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private VBox addInventoryVBox;
 	private Button addInventoryButton;
 	private Label addInventoryMsg;
-	
-	
-	
+		
 	private MenuItem categoryAdd;
+	private Label addCategoryLabel;
+	private Label catCategoryIDLabel;
+	private Label categoryNameLabel;
+	private TextField catCategoryIDTextField;
+	private TextField categoryNameTextField;
+	private HBox catCategoryIDHBox;
+	private HBox categoryNameHBox;
+	private VBox addCategoryVBox;
+	private Button addCategoryButton;
+	private Label addCategoryMsg;
+	
+	
+	
 	private MenuItem supplierAdd;	
 	
 	
@@ -78,7 +89,10 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private ListView<String> itemListView;
 	private VBox readVBox;
 	
+	// Update menu
 	private Menu updateMenu;
+	
+	// Delete menu
 	private Menu deleteMenu;
 	
 	private BorderPane borderPane;
