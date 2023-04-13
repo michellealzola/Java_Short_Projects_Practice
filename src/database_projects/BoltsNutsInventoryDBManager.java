@@ -126,11 +126,12 @@ public class BoltsNutsInventoryDBManager
 		
 		supplierList.add(String.format("%s", result.getMetaData().getColumnName(1))
 				+ String.format("\t%s", result.getMetaData().getColumnName(2))
-				+ String.format("\t\t\t%s", result.getMetaData().getColumnName(3))
-				+ String.format("\t\t\t\t\t%s", result.getMetaData().getColumnName(4))
-				+ String.format("\t\t\t%s", result.getMetaData().getColumnName(5))
-				+ String.format("\t\t\t%s", result.getMetaData().getColumnName(6))
-				+ String.format("\t\t\t%s", result.getMetaData().getColumnName(7)));
+				+ String.format("%33s", result.getMetaData().getColumnName(3))
+				+ String.format("%47s", result.getMetaData().getColumnName(4))
+				+ String.format("%34s", result.getMetaData().getColumnName(5))
+				+ String.format("%22s", result.getMetaData().getColumnName(6))
+				+ String.format("\t%s", result.getMetaData().getColumnName(7))
+				+ String.format("\t\t%s", result.getMetaData().getColumnName(8)));
 		
 		while(result.next())
 		{
@@ -138,9 +139,10 @@ public class BoltsNutsInventoryDBManager
 					+ String.format("\t%s", result.getString("SupplierName"))
 					+ String.format("%s", result.getString("SupplierAddress"))
 					+ String.format("%s", result.getString("SupplierCity"))
+					+ String.format("%s", result.getString("SupplierProvince"))
 					+ String.format("%s", result.getString("SupplierPostalCode"))
 					+ String.format("\t\t%s", result.getString("SupplierPhone"))
-					+ String.format("\t\t\t%s", result.getString("SupplierFax")));
+					+ String.format("\t%s", result.getString("SupplierFax")));
 			
 		}
 		
@@ -152,4 +154,33 @@ public class BoltsNutsInventoryDBManager
 		return supplierList;
 		
 	}
+	
+	public static void addProduct(String productID, String productName, String productDescription, String categoryID)
+	{
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
