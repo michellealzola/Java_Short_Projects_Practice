@@ -57,8 +57,9 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private HBox inventoryIDHBox;
 	private HBox inProductIDHBox;
 	private HBox supplierIDHBox;
-	private HBox qtyInStock;
+	private HBox qtyInStockHBox;
 	private VBox addInventoryVBox;
+	private Button addInventoryButton;
 	private Label addInventoryMsg;
 	
 	
@@ -133,7 +134,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	    createMenu.getItems().add(inventoryAdd);
 	    createMenu.getItems().add(categoryAdd);
 	    createMenu.getItems().add(supplierAdd);
-
+	    
 	    // Add Product
 	    addProductLabel = new Label("Add a Product");
 	    addProductLabel.getStyleClass().add("heading");
@@ -157,7 +158,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	    addProductMsg = new Label();
 	    
 	    addProductButton = new Button("Add Product");
-	    addProductButton.setOnAction(eDddProductButton -> 
+	    addProductButton.setOnAction(eAddProductButton -> 
 	    {
 	    	try
 			{
@@ -179,7 +180,49 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	    });
 	    
 	    // Add Inventory
+	    addInventoryLabel = new Label("Add an Inventory");
+	    addInventoryLabel.getStyleClass().add("heading");
 	    
+	    inventoryIDLabel = new Label("Inventory ID:");
+	    inventoryIDTextField = new TextField();
+	    inventoryIDHBox = new HBox(10, inventoryIDLabel, inventoryIDTextField);
+	    
+	    inProductIDLabel = new Label("Product ID: ");
+	    inProductIDTextField = new TextField();
+	    inProductIDHBox = new HBox(10, inProductIDLabel, inProductIDTextField);
+	    
+	    supplierIDLabel = new Label("Supplier ID:");
+	    supplierIDTextField = new TextField();
+	    supplierIDHBox = new HBox(10, supplierIDLabel, supplierIDTextField);
+	    
+	    qtyInStockLabel = new Label("Quantity in Stock");
+	    qtyInStockTextField = new TextField();
+	    qtyInStockHBox = new HBox(10, qtyInStockLabel, qtyInStockTextField);
+	    
+	    addInventoryMsg = new Label();
+	    
+	    addInventoryButton = new Button("Add Inventory");
+	    addInventoryButton.setOnAction(eAddInventoryButton -> 
+	    {
+	    	try
+			{
+				addInventoryMsg.setText(BoltsNutsInventoryDBManager.addInventory(inventoryIDTextField.getText(), inProductIDTextField.getText(), supplierIDTextField.getText(), Integer.parseInt(qtyInStockTextField.getText())));
+			} 
+	    	catch (SQLException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	    });
+	    
+	    addInventoryVBox = new VBox(10, addInventoryLabel, inventoryIDHBox, inProductIDHBox, supplierIDHBox, qtyInStockHBox, addInventoryButton, addInventoryMsg);
+		addInventoryVBox.setPadding(new Insets(25));
+		
+		inventoryAdd.setOnAction(e -> {
+	        borderPane.setCenter(addInventoryVBox);
+	    });
+		
+		// Add Category
 		
 		
 	}
