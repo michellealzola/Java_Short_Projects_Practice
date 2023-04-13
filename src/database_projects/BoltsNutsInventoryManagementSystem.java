@@ -103,10 +103,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private VBox addSupplierVBox;
 	private Button addSupplierButton;
 	private Label addSupplierMsg;
-	
-	
-	
-	
+		
 	// Read menu
 	private Menu readMenu;
 	private MenuItem productMenuItem;
@@ -217,7 +214,8 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	    addProductVBox = new VBox(10, addProductLabel, productIDHBox, productNameHBox, productDescriptionHBox, categoryIDHBox, addProductButton, addProductMsg);
 	    addProductVBox.setPadding(new Insets(25));
 	    
-	    productAdd.setOnAction(e -> {
+	    productAdd.setOnAction(e -> 
+	    {
 	        borderPane.setCenter(addProductVBox);
 	    });
 	    
@@ -260,7 +258,8 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	    addInventoryVBox = new VBox(10, addInventoryLabel, inventoryIDHBox, inProductIDHBox, supplierIDHBox, qtyInStockHBox, addInventoryButton, addInventoryMsg);
 		addInventoryVBox.setPadding(new Insets(25));
 		
-		inventoryAdd.setOnAction(e -> {
+		inventoryAdd.setOnAction(e -> 
+		{
 	        borderPane.setCenter(addInventoryVBox);
 	    });
 		
@@ -295,11 +294,75 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		addCategoryVBox = new VBox(10, addCategoryLabel, catCategoryIDHBox, categoryNameHBox, addCategoryButton, addCategoryMsg);
 		addCategoryVBox.setPadding(new Insets(25));
 		
-		categoryAdd.setOnAction(e -> {
+		categoryAdd.setOnAction(e -> 
+		{
 	        borderPane.setCenter(addCategoryVBox);
 	    });
 		
 		// Add Supplier
+		addSupplierLabel = new Label("Add a Supplier");
+		addSupplierLabel.getStyleClass().add("heading");
+		
+		supSupplierIDLabel = new Label("Supplier ID:");
+		supSupplierIDTextField = new TextField();
+		supSupplierIDHBox = new HBox(10, supSupplierIDLabel, supSupplierIDTextField);
+		
+		supplierNameLabel = new Label("Supplier Name:");
+		supplierNameTextField = new TextField();
+		supplierNameHBox = new HBox(10, supplierNameLabel, supplierNameTextField);
+		
+		supplierAddressLabel = new Label("Supplier Address:");
+		supplierAddressTextField = new TextField();
+		supplierAddressHBox = new HBox(10, supplierAddressLabel, supplierAddressTextField);
+		
+		supplierCityLabel = new Label("Supplier City:");
+		supplierCityTextField = new TextField();
+		supplierCityHBox = new HBox(10, supplierCityLabel, supplierCityTextField);
+		
+		supplierProvinceLabel = new Label("Supplier Province");
+		supplierProvinceTextField = new TextField();
+		supplierProvinceHBox = new HBox(10, supplierProvinceLabel, supplierProvinceTextField);
+		
+		supplierPostCodeLabel = new Label("Supplier Postal Code:");
+		supplierPostCodeTextField = new TextField();
+		supplierPostCodeHBox = new HBox(10, supplierPostCodeLabel, supplierPostCodeTextField);		
+		
+		supplierPhoneLabel  = new Label("Supplier Phone:");
+		supplierPhoneTextField = new TextField();
+		supplierPhoneHBox = new HBox(10, supplierPhoneLabel, supplierPhoneTextField);		
+		
+		supplierFaxLabel = new Label("Supplier Fax:");
+		supplierFaxTextField = new TextField();
+		supplierFaxHBox = new HBox(10, supplierFaxLabel, supplierFaxTextField);
+		
+		addSupplierMsg = new Label();
+		
+		addSupplierButton = new Button("Add a Supplier");
+		addSupplierButton.setOnAction(eAddSupplierButton -> 
+		{
+			try
+			{
+				addSupplierMsg.setText(BoltsNutsInventoryDBManager.addSupplier(supSupplierIDTextField.getText(), 
+						supplierNameTextField.getText(), supplierAddressTextField.getText(), supplierCityTextField.getText(), 
+						supplierProvinceTextField.getText(), supplierPostCodeTextField.getText(), 
+						supplierPhoneTextField.getText(), supplierFaxTextField.getText()));
+			} 
+			catch (SQLException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+		
+		addSupplierVBox = new VBox(10, addSupplierLabel, supSupplierIDHBox, supplierNameHBox, 
+				supplierAddressHBox, supplierCityHBox, supplierProvinceHBox, supplierPostCodeHBox, 
+				supplierPhoneHBox, supplierFaxHBox, addSupplierButton, addSupplierMsg);
+		addSupplierVBox.setPadding(new Insets(25));
+		
+		supplierAdd.setOnAction(e -> 
+		{
+			borderPane.setCenter(addSupplierVBox);
+		});
 		
 	}
 
@@ -324,63 +387,52 @@ public class BoltsNutsInventoryManagementSystem extends Application
 		{
 			try
 			{
-				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getProductList());
-				
+				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getProductList());				
 			} 
 			catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
-			
+			}			
 		});
 		
 		inventoryMenuItem.setOnAction(e ->
-		{
-			
+		{			
 			try
 			{
-				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getInventoryList());
-				
+				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getInventoryList());				
 			} 
 			catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
-			
+			}			
 		});
 		
 		categoryMenuItem.setOnAction(e ->
-		{
-			
+		{			
 			try
 			{
-				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getCategoryList());
-				
+				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getCategoryList());				
 			} 
 			catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
-			
+			}			
 		});
 		
 		supplierMenuItem.setOnAction(e ->
-		{
-			
+		{			
 			try
 			{
-				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getSupplierList());
-				
+				itemListView.getItems().addAll(BoltsNutsInventoryDBManager.getSupplierList());				
 			} 
 			catch (SQLException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
-			
+			}			
 		});		
 
 		readVBox = new VBox(itemListView);
