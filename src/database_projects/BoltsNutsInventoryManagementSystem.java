@@ -116,6 +116,18 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	// Update menu
 	private Menu updateMenu;
 	private MenuItem changeQtyMenuItem;
+	private Label updateQtyLabel;
+	private Label upInventoryIDLabel;
+	private Label upOrigDataLabel;
+	private Label upNewQtyLabel;
+	private TextField upInventoryIDTextField;
+	private ListView<String> inventoryListView;
+	private TextField upNewQtyTextField;
+	private HBox upInventoryIDHBox;
+	private VBox upOrigDataVBox;
+	private HBox upNewQty;
+	private Label upNewQtyMsg;
+	private VBox updateVBox;
 	
 	// Delete menu
 	private Menu deleteMenu;
