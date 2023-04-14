@@ -1,3 +1,9 @@
+# Bolts and Nuts Inventory Management System
+- Read about this app: https://michellealzoladesign.com/bolts-and-nuts-inventory-management-system/
+![Screenshot 2023-04-14 065946](https://user-images.githubusercontent.com/105762453/232064283-96fbd63b-45ae-41c7-8227-8123ebd9cd24.png)
+
+See it in action: https://youtu.be/M3nys0HfjRk
+
 # Books Shopping Cart System
 - Read about this app: https://michellealzoladesign.com/java-short-project-books-shopping-cart-system/
 
