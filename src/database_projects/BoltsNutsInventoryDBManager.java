@@ -293,7 +293,7 @@ public class BoltsNutsInventoryDBManager
 		return inventoryList;
 	}
 	
-	public String deleteProduct(String productID) throws SQLException
+	public static String deleteProduct(String productID) throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(DB_URL);
 		
@@ -311,7 +311,7 @@ public class BoltsNutsInventoryDBManager
 		return rows + " row(s) deleted.";
 	}
 	
-	public String deleteInventory(String inventoryID) throws SQLException
+	public static String deleteInventory(String inventoryID) throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(DB_URL);
 		
@@ -329,7 +329,7 @@ public class BoltsNutsInventoryDBManager
 		return rows + " row(s) deleted.";
 	}
 	
-	public String deleteCategory(String categoryID) throws SQLException
+	public static String deleteCategory(String categoryID) throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(DB_URL);
 		
@@ -347,7 +347,7 @@ public class BoltsNutsInventoryDBManager
 		return rows + " row(s) deleted.";
 	}
 	
-	public String deleteSupplier(String supplierID) throws SQLException
+	public static String deleteSupplier(String supplierID) throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(DB_URL);
 		

@@ -138,15 +138,14 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private MenuItem deleteProduct;
 	private MenuItem deleteInventory;
 	private MenuItem deleteCategory;
-	private MenuItem deleteSupplier;
-	
-	private TextField sureTextField;
+	private MenuItem deleteSupplier;	
 	
 	private Label deleteProductLabel;
 	private Label enterProductIDLabel;
 	private TextField enterProductIDTextField;
 	private HBox enterProductIDHBox;
 	private Button deleteProductButton;
+	private Label deleteProductMsg;
 	private VBox deleteProductVBox;
 	
 	private Label deleteInventoryLabel;
@@ -154,6 +153,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private TextField enterInventoryIDTextField;
 	private HBox enterInventoryIDHBox;
 	private Button deleteInventoryButton;
+	private Label deleteInventoryMsg;
 	private VBox deleteInventoryVBox;
 	
 	private Label deleteCategoryLabel;
@@ -161,6 +161,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private TextField enterCategoryIDTextField;
 	private HBox enterCategoryIDHBox;
 	private Button deleteCategoryButton;
+	private Label deleteCategoryMsg;
 	private VBox deleteCategoryVBox;
 		
 	private Label deleteSupplierLabel;
@@ -168,6 +169,7 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private TextField enterSupplierIDTextField;
 	private HBox enterSupplierIDHBox;
 	private Button deleteSupplierButton;
+	private Label deleteSupplierMsg;
 	private VBox deleteSupplierVBox;
 	
 	
@@ -563,6 +565,147 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	private void buildDeleteMenu(Stage primaryStage)
 	{
 		deleteMenu = new Menu("Delete");
+		deleteProduct = new MenuItem("Remove Product");
+		deleteInventory = new MenuItem("Remove Inventory");
+		deleteCategory = new MenuItem("Remove Category");
+		deleteSupplier = new MenuItem("Remove Supplier");
+		
+		deleteMenu.getItems().add(deleteProduct);
+		deleteMenu.getItems().add(deleteInventory);
+		deleteMenu.getItems().add(deleteCategory);
+		deleteMenu.getItems().add(deleteSupplier);		
+		
+		// Delete Product
+		deleteProductLabel = new Label("Remove a Product");
+		deleteProductLabel.getStyleClass().add("heading");
+		
+		enterProductIDLabel = new Label("Enter Product ID:");
+		enterProductIDTextField = new TextField();
+		enterProductIDHBox = new HBox(10, enterProductIDLabel, enterProductIDTextField);
+		
+		deleteProductMsg = new Label();		
+		
+		deleteProductButton = new Button("Delete Product");
+		deleteProductButton.setOnAction(eDeleteProductButton -> 
+		{
+			try
+			{
+				deleteProductMsg.setText(BoltsNutsInventoryDBManager.deleteProduct(enterProductIDTextField.getText()));
+			} 
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		});		
+		
+		deleteProductVBox = new VBox(10, deleteProductLabel, enterProductIDHBox, deleteProductButton, deleteProductMsg);
+		deleteProductVBox.setPadding(new Insets(25));
+		
+		deleteProduct.setOnAction(e -> 
+		{
+			borderPane.setCenter(deleteProductVBox);
+		});
+		
+		// Delete Inventory
+		deleteInventoryLabel = new Label("Remove a Inventory");
+		deleteInventoryLabel.getStyleClass().add("heading");
+		
+		enterInventoryIDLabel = new Label("Enter Inventory ID:");
+		enterInventoryIDTextField = new TextField();
+		enterInventoryIDHBox = new HBox(10, enterInventoryIDLabel, enterInventoryIDTextField);
+		
+		deleteInventoryMsg = new Label();		
+		
+		deleteInventoryButton = new Button("Delete Inventory");
+		deleteInventoryButton.setOnAction(eDeleteInventoryButton -> 
+		{
+			try
+			{
+				deleteInventoryMsg.setText(BoltsNutsInventoryDBManager.deleteInventory(enterInventoryIDTextField.getText()));
+			} 
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		});		
+		
+		deleteInventoryVBox = new VBox(10, deleteInventoryLabel, enterInventoryIDHBox, deleteInventoryButton, deleteInventoryMsg);
+		deleteInventoryVBox.setPadding(new Insets(25));
+		
+		deleteInventory.setOnAction(e -> 
+		{
+			borderPane.setCenter(deleteInventoryVBox);
+		});
+		
+		// Delete Category
+		deleteCategoryLabel = new Label("Remove a Category");
+		deleteCategoryLabel.getStyleClass().add("heading");
+		
+		enterCategoryIDLabel = new Label("Enter Category ID:");
+		enterCategoryIDTextField = new TextField();
+		enterCategoryIDHBox = new HBox(10, enterCategoryIDLabel, enterCategoryIDTextField);
+		
+		deleteCategoryMsg = new Label();		
+		
+		deleteCategoryButton = new Button("Delete Category");
+		deleteCategoryButton.setOnAction(eDeleteCategoryButton -> 
+		{
+			try
+			{
+				deleteCategoryMsg.setText(BoltsNutsInventoryDBManager.deleteCategory(enterCategoryIDTextField.getText()));
+			} 
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		});		
+		
+		deleteCategoryVBox = new VBox(10, deleteCategoryLabel, enterCategoryIDHBox, deleteCategoryButton, deleteCategoryMsg);
+		deleteCategoryVBox.setPadding(new Insets(25));
+		
+		deleteCategory.setOnAction(e -> 
+		{
+			borderPane.setCenter(deleteCategoryVBox);
+		});
+		
+		// Delete Supplier
+		deleteSupplierLabel = new Label("Remove a Supplier");
+		deleteSupplierLabel.getStyleClass().add("heading");
+		
+		enterSupplierIDLabel = new Label("Enter Supplier ID:");
+		enterSupplierIDTextField = new TextField();
+		enterSupplierIDHBox = new HBox(10, enterSupplierIDLabel, enterSupplierIDTextField);
+		
+		deleteSupplierMsg = new Label();		
+		
+		deleteSupplierButton = new Button("Delete Supplier");
+		deleteSupplierButton.setOnAction(eDeleteCategoryButton -> 
+		{
+			try
+			{
+				deleteSupplierMsg.setText(BoltsNutsInventoryDBManager.deleteSupplier(enterSupplierIDTextField.getText()));
+			} 
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		});		
+		
+		deleteSupplierVBox = new VBox(10, deleteSupplierLabel, enterSupplierIDHBox, deleteSupplierButton, deleteSupplierMsg);
+		deleteSupplierVBox.setPadding(new Insets(25));
+		
+		deleteSupplier.setOnAction(e -> 
+		{
+			borderPane.setCenter(deleteSupplierVBox);
+		});
 		
 	}
 

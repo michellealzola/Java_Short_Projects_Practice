@@ -109,7 +109,7 @@ public class createBoltsNutsInventoryDB
 					+ "ProductName CHAR(30), "
 					+ "ProductDescription CHAR(30), "
 					+ "CategoryID CHAR(10) NOT NULL, "
-					+ "CONSTRAINT Product_CategoryID_FK FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID))");
+					+ "CONSTRAINT Product_CategoryID_FK FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID) ON DELETE CASCADE)");
 			
 			stmt.execute("INSERT INTO Product VALUES ('P-001', 'Hex Bolt', '1/4 in. x 2 in. Zinc Plated', 'C-001')");
 			stmt.execute("INSERT INTO Product VALUES ('P-002', 'Wing Nut', '5/16 in. Zinc Plated', 'C-002')");
@@ -138,8 +138,8 @@ public class createBoltsNutsInventoryDB
 					+ "ProductID CHAR(10) NOT NULL, "
 					+ "SupplierID CHAR(10) NOT NULL, "
 					+ "QuantityInStock INTEGER, "
-					+ "CONSTRAINT Inventory_ProductID_FK FOREIGN KEY (ProductID) REFERENCES Product(ProductID), "
-					+ "CONSTRAINT Inventory_SupplierID_FK FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID))");
+					+ "CONSTRAINT Inventory_ProductID_FK FOREIGN KEY (ProductID) REFERENCES Product(ProductID) ON DELETE CASCADE, "
+					+ "CONSTRAINT Inventory_SupplierID_FK FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID) ON DELETE CASCADE)");
 			
 			stmt.execute("INSERT INTO Inventory VALUES ('I-001', 'P-001', 'S-001', 100)");
 			stmt.execute("INSERT INTO Inventory VALUES ('I-002', 'P-002', 'S-002', 200)");
