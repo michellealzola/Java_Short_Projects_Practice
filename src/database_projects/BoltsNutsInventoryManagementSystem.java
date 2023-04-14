@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 public class BoltsNutsInventoryManagementSystem extends Application
 {
 	private MenuBar menuBar;
+	
+	// File menu
 	private Menu fileMenu;
 	private MenuItem exitMenuItem;
 	
@@ -133,7 +135,44 @@ public class BoltsNutsInventoryManagementSystem extends Application
 	
 	// Delete menu
 	private Menu deleteMenu;
+	private MenuItem deleteProduct;
+	private MenuItem deleteInventory;
+	private MenuItem deleteCategory;
+	private MenuItem deleteSupplier;
 	
+	private TextField sureTextField;
+	
+	private Label deleteProductLabel;
+	private Label enterProductIDLabel;
+	private TextField enterProductIDTextField;
+	private HBox enterProductIDHBox;
+	private Button deleteProductButton;
+	private VBox deleteProductVBox;
+	
+	private Label deleteInventoryLabel;
+	private Label enterInventoryIDLabel;
+	private TextField enterInventoryIDTextField;
+	private HBox enterInventoryIDHBox;
+	private Button deleteInventoryButton;
+	private VBox deleteInventoryVBox;
+	
+	private Label deleteCategoryLabel;
+	private Label enterCategoryIDLabel;
+	private TextField enterCategoryIDTextField;
+	private HBox enterCategoryIDHBox;
+	private Button deleteCategoryButton;
+	private VBox deleteCategoryVBox;
+		
+	private Label deleteSupplierLabel;
+	private Label enterSupplierIDLabel;
+	private TextField enterSupplierIDTextField;
+	private HBox enterSupplierIDHBox;
+	private Button deleteSupplierButton;
+	private VBox deleteSupplierVBox;
+	
+	
+	
+	// Content container
 	private BorderPane borderPane;
 	
 	public static void main(String[] args)

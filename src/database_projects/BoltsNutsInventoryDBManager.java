@@ -293,6 +293,78 @@ public class BoltsNutsInventoryDBManager
 		return inventoryList;
 	}
 	
+	public String deleteProduct(String productID) throws SQLException
+	{
+		Connection conn = DriverManager.getConnection(DB_URL);
+		
+		String sqlStatement = "DELETE FROM Product WHERE ProductID = ?" ;
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, productID);
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) deleted.";
+	}
+	
+	public String deleteInventory(String inventoryID) throws SQLException
+	{
+		Connection conn = DriverManager.getConnection(DB_URL);
+		
+		String sqlStatement = "DELETE FROM Inventory WHERE InventoryID = ?" ;
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, inventoryID);
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) deleted.";
+	}
+	
+	public String deleteCategory(String categoryID) throws SQLException
+	{
+		Connection conn = DriverManager.getConnection(DB_URL);
+		
+		String sqlStatement = "DELETE FROM Category WHERE CategoryID = ?" ;
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, categoryID);
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) deleted.";
+	}
+	
+	public String deleteSupplier(String supplierID) throws SQLException
+	{
+		Connection conn = DriverManager.getConnection(DB_URL);
+		
+		String sqlStatement = "DELETE FROM Supplier WHERE SupplierID = ?" ;
+		PreparedStatement pstmt = conn.prepareStatement(sqlStatement);
+		pstmt.setString(1, supplierID);
+		
+		int rows = pstmt.executeUpdate();
+		
+		conn.commit();
+		
+		pstmt.close();
+		conn.close();
+		
+		return rows + " row(s) deleted.";
+	}
+	
 }
 
 
