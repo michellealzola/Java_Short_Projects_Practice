@@ -30,7 +30,34 @@ public class HotelReservationDB_TEST
 
 	private static void viewGuest(Connection conn)
 	{
-		// TODO Auto-generated method stub
+		Statement stmt;
+		try
+		{
+			stmt = conn.createStatement();
+			
+			String sql = "SELECT * FROM Guest";
+			
+			ResultSet result = stmt.executeQuery(sql);
+			
+			System.out.println(result.getMetaData().getColumnName(1)
+					+ result.getMetaData().getColumnName(2)
+					+ result.getMetaData().getColumnName(3)
+					+ result.getMetaData().getColumnName(4));
+			
+			while(result.next())
+			{
+				System.out.println(result.getString("id")
+						+ result.getString("guest_name")
+						+ result.getString("guest_phone")
+						+ result.getString("guest_email"));
+			}
+			System.out.println();			
+			
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -69,7 +96,36 @@ public class HotelReservationDB_TEST
 
 	private static void viewBooking(Connection conn)
 	{
-		// TODO Auto-generated method stub
+		Statement stmt;
+		try
+		{
+			stmt = conn.createStatement();
+			
+			String sql = "SELECT * FROM Booking";
+			
+			ResultSet result = stmt.executeQuery(sql);
+			
+			System.out.println(result.getMetaData().getColumnName(1)
+					+ result.getMetaData().getColumnName(2)
+					+ result.getMetaData().getColumnName(3)
+					+ result.getMetaData().getColumnName(4)
+					+ result.getMetaData().getColumnName(5));
+			
+			while(result.next())
+			{
+				System.out.println(result.getString("id")
+						+ result.getString("room_id")
+						+ result.getString("guest_id")
+						+ result.getString("check_in")
+						+ result.getString("check_out"));
+			}
+			System.out.println();			
+			
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
