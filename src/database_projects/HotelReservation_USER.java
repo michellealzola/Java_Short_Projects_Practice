@@ -63,6 +63,10 @@ public class HotelReservation_USER extends Application
 		private HBox roomPriceHbox;
 		
 		private VBox roomAddVBox;
+		
+	private HBox addGuestRoomHBox;
+	
+	private VBox addGuestRoomBookingVBox;
 	
 		// [Add Reservation Menu] - Booking Interface -
 	
