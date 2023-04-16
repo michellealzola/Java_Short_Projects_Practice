@@ -19,24 +19,57 @@ public class HotelReservationDB_CREATE
 			buildBookingTable(conn);
 			
 			conn.close();
-			
-			
-			
-			
 		} 
 		catch (SQLException e)
 		{
 			System.out.println("ERROR: " + e.getMessage());
 		}
-		
-		
-		
-
 	}
 
 	private static void dropTables(Connection conn)
 	{
-		// TODO Auto-generated method stub
+		System.out.println("Dropping Tables...");
+		
+		try
+		{
+			Statement stmt = conn.createStatement();
+			
+			try
+			{
+				stmt.execute("DROP TABLE Room CASCADE CONSTRAINTS");
+				System.out.println("Room table dropped");
+			} 
+			catch (Exception e)
+			{
+				// No need for an error message. The table does not exist.
+			}
+			
+			try
+			{
+				stmt.execute("DROP TABLE Guest CASCADE CONSTRAINTS");
+				System.out.println("Guest table dropped");
+			} 
+			catch (Exception e)
+			{
+				// No need for an error message. The table does not exist.
+			}
+			
+			try
+			{
+				stmt.execute("DROP TABLE Booking CASCADE CONSTRAINTS");
+				System.out.println("Booking table dropped");
+			} 
+			catch (Exception e)
+			{
+				// No need for an error message. The table does not exist.
+			}
+		} 
+		catch (SQLException e)
+		{
+			System.out.println("ERROR: " + e.getMessage());
+			e.printStackTrace();
+		}
+		
 		
 	}
 
