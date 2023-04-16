@@ -75,7 +75,26 @@ public class HotelReservationDB_CREATE
 
 	private static void buildGuestTable(Connection conn)
 	{
-		// TODO Auto-generated method stub
+		try
+		{
+			Statement stmt = conn.createStatement();
+			
+			stmt.execute("CREATE TABLE Guest "
+					+ "(id INT NOT NULL PRIMARY KEY, "
+					+ "guest_name VARCHAR(50) NOT NULL, "
+					+ "guest_phone VARCHAR(15) NOT NULL, "
+					+ "guest_email VARCHAR(50) NOT NULL)");
+			
+			stmt.execute("INSERT INTO Guest VALUES (1, 'John Doe', '123-456-7890', 'john.doe@example.com')");
+			stmt.execute("INSERT INTO Guest VALUES (2, 'Jane Smith', '456-789-0123', 'jane.smith@example.com')");
+			stmt.execute("INSERT INTO Guest VALUES (3, 'Bob Johnson', '789-012-3456', 'bob.johnson@example.com')");
+			stmt.execute("INSERT INTO Guest VALUES (4, 'Alice Brown', '012-345-6789', 'alice.brown@example.com')");
+		} 
+		catch (SQLException e)
+		{
+			System.out.println("ERROR: " + e.getMessage());
+			e.printStackTrace();
+		}
 		
 	}
 
