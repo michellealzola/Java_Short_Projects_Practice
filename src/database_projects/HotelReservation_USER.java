@@ -1,12 +1,14 @@
 package database_projects;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -20,6 +22,7 @@ public class HotelReservation_USER extends Application
 	private MenuItem exitMenuItem;
 	
 	// [Add Reservation Menu]
+	private Menu addReservationMenu;
 	
 		// [Add Reservation Menu] - Guest Interface -
 	
@@ -85,10 +88,21 @@ public class HotelReservation_USER extends Application
 	
 	
 	
-	// View Menu
-	// Search Menu
-	// Update Menu
-	// Calendar Menu
+	// [View Menu]
+	private Menu viewMenu;
+	
+	// [Search Menu]
+	private Menu searchMenu;
+	
+	// [Update Menu]
+	private Menu updateMenu;
+	
+	// [Calendar Menu]
+	private Menu calendarMenu;
+	
+	
+	private BorderPane borderPane;
+	
 
 	public static void main(String[] args)
 	{
@@ -99,7 +113,102 @@ public class HotelReservation_USER extends Application
 	@Override
 	public void start(Stage primaryStage)
 	{
+		menuBar = new MenuBar();
+		buildFileMenu(primaryStage);
+		buildAddReservationMenu(primaryStage);
+		buildViewMenu(primaryStage);
+		buildSearchMenu(primaryStage);
+		buildUpdateMenu(primaryStage);
+		buildCalendarMenu(primaryStage);
+		
+		menuBar.getMenus().add(fileMenu);
+		menuBar.getMenus().add(addReservationMenu);
+		menuBar.getMenus().add(viewMenu);
+		menuBar.getMenus().add(searchMenu);
+		menuBar.getMenus().add(updateMenu);
+		menuBar.getMenus().add(calendarMenu);
+		
+		borderPane = new BorderPane();
+		borderPane.setTop(menuBar);
+		
+		Scene scene = new Scene(borderPane, 1200, 800);
+		scene.getStylesheets().add("hotel.css");
+		
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+		
+	}
+
+	private void buildFileMenu(Stage primaryStage)
+	{
+		fileMenu = new Menu("File");
+		exitMenuItem  = new MenuItem("Exit");
+		
+		exitMenuItem.setOnAction(event -> 
+		{
+			primaryStage.close();
+		});
+		
+		fileMenu.getItems().add(exitMenuItem);
+		
+	}
+
+	private void buildAddReservationMenu(Stage primaryStage)
+	{
+		addReservationMenu = new Menu("Add Reservation");
+		
+	}
+
+	private void buildViewMenu(Stage primaryStage)
+	{
+		viewMenu = new Menu("View");
+		
+	}
+
+	private void buildSearchMenu(Stage primaryStage)
+	{
+		searchMenu = new Menu("Search");
+		
+	}
+
+	private void buildUpdateMenu(Stage primaryStage)
+	{
+		updateMenu = new Menu("Update");
+		
+	}
+
+	private void buildCalendarMenu(Stage primaryStage)
+	{
+		calendarMenu = new Menu("Calendar");
 		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
