@@ -128,7 +128,33 @@ public class HotelReservationDB_CREATE
 
 	private static void buildBookingTable(Connection conn)
 	{
-		// TODO Auto-generated method stub
+		try
+		{
+			Statement stmt = conn.createStatement();
+			
+			stmt.execute("CREATE TABLE Booking "
+						+ "(id INT NOT NULL PRIMARY KEY, "
+						+ "room_id INT NOT NULL, "
+						+ "guest_id INT NOT NULL, "
+						+ "check_in DATE NOT NULL, "
+						+ "check_out DATE NOT NULL, "
+						+ "CONSTRAINT fk_booking_room FOREIGN KEY (room_id) REFERENCES Room (id) ON DELETE CASCADE, "
+						+ "CONSTRAINT fk_booking_guest FOREIGN KEY (guest_id) REFERENCES Guest (id) ON DELETE CASCADE, "
+						+ "CONSTRAINT chk_booking_dates CHECK (check_out >= check_in))");
+			
+			stmt.execute("INSERT INTO Booking VALUES (1, 1, 1, '2023-05-01', '2023-05-03')");
+			stmt.execute("INSERT INTO Booking VALUES (2, 2, 2, '2023-05-02', '2023-05-04')");
+			stmt.execute("INSERT INTO Booking VALUES (3, 3, 3, '2023-05-05', '2023-05-07')");
+			stmt.execute("INSERT INTO Booking VALUES (4, 4, 4, '2023-05-08', '2023-05-10')");
+			stmt.execute("INSERT INTO Booking VALUES (5, 5, 1, '2023-05-15', '2023-05-20')");
+			stmt.execute("INSERT INTO Booking VALUES (6, 6, 2, '2023-06-01', '2023-06-03')");
+		} 
+		catch (SQLException e)
+		{
+			System.out.println("ERROR: " + e.getMessage());
+			e.printStackTrace();
+		}
+		
 		
 	}
 
