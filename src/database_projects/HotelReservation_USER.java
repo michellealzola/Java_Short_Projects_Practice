@@ -158,11 +158,17 @@ public class HotelReservation_USER extends Application
 	{
 		addReservationMenu = new Menu("Add Reservation");
 		
+		// Guest Box
+		// Room Box
+		// Booking box
+		
 	}
 
 	private void buildViewMenu(Stage primaryStage)
 	{
 		viewMenu = new Menu("View");
+		
+		
 		
 	}
 
