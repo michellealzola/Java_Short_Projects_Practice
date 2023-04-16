@@ -80,10 +80,10 @@ public class HotelReservationDB_CREATE
 			Statement stmt = conn.createStatement();
 			
 			stmt.execute("CREATE TABLE Guest "
-					+ "(id INT NOT NULL PRIMARY KEY, "
-					+ "guest_name VARCHAR(50) NOT NULL, "
-					+ "guest_phone VARCHAR(15) NOT NULL, "
-					+ "guest_email VARCHAR(50) NOT NULL)");
+						+ "(id INT NOT NULL PRIMARY KEY, "
+						+ "guest_name VARCHAR(50) NOT NULL, "
+						+ "guest_phone VARCHAR(15) NOT NULL, "
+						+ "guest_email VARCHAR(50) NOT NULL)");
 			
 			stmt.execute("INSERT INTO Guest VALUES (1, 'John Doe', '123-456-7890', 'john.doe@example.com')");
 			stmt.execute("INSERT INTO Guest VALUES (2, 'Jane Smith', '456-789-0123', 'jane.smith@example.com')");
@@ -100,7 +100,29 @@ public class HotelReservationDB_CREATE
 
 	private static void buildRoomTable(Connection conn)
 	{
-		// TODO Auto-generated method stub
+		try
+		{
+			Statement stmt = conn.createStatement();
+			
+			stmt.execute("CREATE TABLE Room "
+						+ "(id INT NOT NULL PRIMARY KEY, "
+						+ "room_number INT NOT NULL, "
+						+ "room_type VARCHAR(50) NOT NULL, "
+						+ "room_price DECIMAL(10, 2) NOT NULL)");
+			
+			stmt.execute("INSERT INTO Room VALUES (1, 101, 'Standard', 100)");
+			stmt.execute("INSERT INTO Room VALUES (2, 102, 'Standard', 100)");
+			stmt.execute("INSERT INTO Room VALUES (3, 201, 'Deluxe', 150)");
+			stmt.execute("INSERT INTO Room VALUES (4, 202, 'Deluxe', 150)");
+			stmt.execute("INSERT INTO Room VALUES (5, 301, 'Suite', 250)");
+			stmt.execute("INSERT INTO Room VALUES (6, 302, 'Suite', 250)");
+		} 
+		catch (SQLException e)
+		{
+			System.out.println("ERROR: " + e.getMessage());
+			e.printStackTrace();
+		}
+		
 		
 	}
 
