@@ -89,6 +89,8 @@ public class HotelReservationDB_CREATE
 			stmt.execute("INSERT INTO Guest VALUES (2, 'Jane Smith', '456-789-0123', 'jane.smith@example.com')");
 			stmt.execute("INSERT INTO Guest VALUES (3, 'Bob Johnson', '789-012-3456', 'bob.johnson@example.com')");
 			stmt.execute("INSERT INTO Guest VALUES (4, 'Alice Brown', '012-345-6789', 'alice.brown@example.com')");
+			
+			System.out.println("Guest table created.");
 		} 
 		catch (SQLException e)
 		{
@@ -116,6 +118,8 @@ public class HotelReservationDB_CREATE
 			stmt.execute("INSERT INTO Room VALUES (4, 202, 'Deluxe', 150)");
 			stmt.execute("INSERT INTO Room VALUES (5, 301, 'Suite', 250)");
 			stmt.execute("INSERT INTO Room VALUES (6, 302, 'Suite', 250)");
+			
+			System.out.println("Room table created.");
 		} 
 		catch (SQLException e)
 		{
@@ -148,6 +152,8 @@ public class HotelReservationDB_CREATE
 			stmt.execute("INSERT INTO Booking VALUES (4, 4, 4, '2023-05-08', '2023-05-10')");
 			stmt.execute("INSERT INTO Booking VALUES (5, 5, 1, '2023-05-15', '2023-05-20')");
 			stmt.execute("INSERT INTO Booking VALUES (6, 6, 2, '2023-06-01', '2023-06-03')");
+			
+			System.out.println("Booking table created.");
 		} 
 		catch (SQLException e)
 		{
