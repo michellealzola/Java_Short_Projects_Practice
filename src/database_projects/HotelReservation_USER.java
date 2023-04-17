@@ -251,8 +251,10 @@ public class HotelReservation_USER extends Application
 		roomBookingVBox = new VBox(10, addBookingHeading, bookingIDHbox, bookingRoomIDHbox, bookingGuestIDHbox, bookingCheckInHbox, bookingCheckOutHbox);
 		roomBookingVBox.setPadding(new Insets(10));
 		
-		addGuestRoomBookingVBox = new VBox(10, addGuestRoomHBox, roomBookingVBox);
-		addGuestRoomBookingVBox.setPadding(new Insets(25));
+		addReservationButton = new Button("Add Reservation");
+		
+		addGuestRoomBookingVBox = new VBox(10, addGuestRoomHBox, roomBookingVBox, addReservationButton);
+		addGuestRoomBookingVBox.setPadding(new Insets(25));		
 		
 		addAll.setOnAction(event -> 
 		{
