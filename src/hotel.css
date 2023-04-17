@@ -13,14 +13,13 @@
 
 .list-view, .label
 {
-    -fx-text-fill: #362511;
-    
+    -fx-text-fill: #362511;   
     
 }
 
 .heading
 {
-	-fx-font-size: 18pt;
+	-fx-font-size: 16pt;
 	-fx-underline: true;
 	-fx-text-fill: #333300;
 }
@@ -30,3 +29,4 @@
 	-fx-font-size: 13pt;
 	-fx-pref-width: 400px;
 }
+
