@@ -26,9 +26,11 @@ public class HotelReservation_USER extends Application
 	
 		// [Add Reservation Menu] - Guest Interface -
 	
+		private Label addGuestHeading;
+	
 		private Label guestIDLabel;
 		private TextField guestIDTextField;
-		private HBox guestIDHbox;
+		private HBox guestIDHBox;
 		
 		private Label guestNameLabel;
 		private TextField guestNameTextField;
@@ -45,6 +47,8 @@ public class HotelReservation_USER extends Application
 		private VBox guestAddVBox;
 	
 		// [Add Reservation Menu] - Room Interface -
+		
+		private Label addRoomHeading;
 	
 		private Label roomIDLabel;
 		private TextField roomIDTextField;
@@ -69,6 +73,8 @@ public class HotelReservation_USER extends Application
 	private VBox addGuestRoomBookingVBox;
 	
 		// [Add Reservation Menu] - Booking Interface -
+	
+		private Label addBookingHeading;
 	
 		private Label bookingIDLabel;
 		private TextField bookingIDTextField;
@@ -163,6 +169,27 @@ public class HotelReservation_USER extends Application
 		addReservationMenu = new Menu("Add Reservation");
 		
 		// Guest Box
+		addGuestHeading = new Label("Guest");
+		addGuestHeading.getStyleClass().add("heading");
+		
+		guestIDLabel = new Label("ID:");
+		guestIDTextField = new TextField();
+		guestIDHBox = new HBox(10, guestIDLabel, guestIDTextField);
+		
+		guestNameLabel = new Label("Name:");
+		guestNameTextField = new TextField();
+		guestNameHbox = new HBox(10, guestNameLabel, guestNameTextField);
+		
+		guestPhoneLabel = new Label("Phone:");
+		guestPhoneTextField = new TextField();
+		guestPhoneHbox = new HBox(10, guestPhoneLabel, guestPhoneTextField);
+		
+		guestEmailLabel = new Label("Email:");
+		guestEmailTextField = new TextField();;
+		guestEmailHbox = new HBox(10, guestEmailLabel, guestEmailTextField);
+		
+		guestAddVBox = new VBox(10, addGuestHeading, guestIDHBox, guestNameHbox, guestPhoneHbox, guestEmailHbox);
+		
 		// Room Box
 		// Booking box
 		
