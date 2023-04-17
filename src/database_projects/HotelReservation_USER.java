@@ -144,7 +144,7 @@ public class HotelReservation_USER extends Application
 		menuBar.getMenus().add(calendarMenu);
 		
 		borderPane = new BorderPane();
-		borderPane.setTop(menuBar);
+		borderPane.setTop(menuBar);		
 		
 		Scene scene = new Scene(borderPane, 1200, 800);
 		scene.getStylesheets().add("hotel.css");
@@ -232,14 +232,6 @@ public class HotelReservation_USER extends Application
 		bookingIDTextField = new TextField();
 		bookingIDHbox = new HBox(10, bookingIDLabel, bookingIDTextField);
 		
-		bookingRoomIDLabel = new Label("Room ID:");
-		bookingRoomIDTextField = new TextField();
-		bookingRoomIDHbox = new HBox(10, bookingRoomIDLabel, bookingRoomIDTextField);
-		
-		bookingGuestIDLabel = new Label("Guest ID");
-		bookingGuestIDTextField = new TextField();
-		bookingGuestIDHbox = new HBox(10, bookingGuestIDLabel, bookingGuestIDTextField);
-		
 		bookingCheckInLabel = new Label("Check-in");
 		bookingCheckIn = new DatePicker();
 		bookingCheckInHbox = new HBox(10, bookingCheckInLabel, bookingCheckIn);
@@ -248,7 +240,7 @@ public class HotelReservation_USER extends Application
 		bookingCheckOut = new DatePicker();
 		bookingCheckOutHbox = new HBox(10, bookingCheckOutLabel, bookingCheckOut);
 		
-		roomBookingVBox = new VBox(10, addBookingHeading, bookingIDHbox, bookingRoomIDHbox, bookingGuestIDHbox, bookingCheckInHbox, bookingCheckOutHbox);
+		roomBookingVBox = new VBox(10, addBookingHeading, bookingIDHbox, bookingCheckInHbox, bookingCheckOutHbox);
 		roomBookingVBox.setPadding(new Insets(10));
 		
 		addReservationButton = new Button("Add Reservation");
