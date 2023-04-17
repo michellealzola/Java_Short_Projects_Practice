@@ -96,6 +96,8 @@ public class HotelReservation_USER extends Application
 		private Label bookingCheckOutLabel;
 		private DatePicker bookingCheckOut;
 		private HBox bookingCheckOutHbox;
+		
+		private VBox roomBookingVBox;
 	
 	private VBox addGuestRoomBookingVBox;
 	
