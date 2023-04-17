@@ -23,6 +23,7 @@ public class HotelReservation_USER extends Application
 	
 	// [Add Reservation Menu]
 	private Menu addReservationMenu;
+	private MenuItem addAll;
 	
 		// [Add Reservation Menu] - Guest Interface -
 	
@@ -167,6 +168,9 @@ public class HotelReservation_USER extends Application
 	private void buildAddReservationMenu(Stage primaryStage)
 	{
 		addReservationMenu = new Menu("Add Reservation");
+		addAll = new MenuItem("Add");
+		
+		addReservationMenu.getItems().add(addAll);
 		
 		// Guest Box
 		addGuestHeading = new Label("Guest");
@@ -191,7 +195,18 @@ public class HotelReservation_USER extends Application
 		guestAddVBox = new VBox(10, addGuestHeading, guestIDHBox, guestNameHbox, guestPhoneHbox, guestEmailHbox);
 		
 		// Room Box
+		
+		
+		
+		addGuestRoomHBox = new HBox(guestAddVBox);
 		// Booking box
+		
+		
+		
+		addAll.setOnAction(event -> 
+		{
+			borderPane.setCenter(guestAddVBox);
+		});
 		
 	}
 
