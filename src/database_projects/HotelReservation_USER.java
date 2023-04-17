@@ -2,6 +2,7 @@ package database_projects;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -69,9 +70,7 @@ public class HotelReservation_USER extends Application
 		
 		private VBox roomAddVBox;
 		
-	private HBox addGuestRoomHBox;
-	
-	private VBox addGuestRoomBookingVBox;
+	private HBox addGuestRoomHBox;	
 	
 		// [Add Reservation Menu] - Booking Interface -
 	
@@ -97,7 +96,9 @@ public class HotelReservation_USER extends Application
 		private DatePicker bookingCheckOut;
 		private HBox bookingCheckOutHbox;
 	
+	private VBox addGuestRoomBookingVBox;
 	
+	private Button addReservationButton;
 	
 	// [View Menu]
 	private Menu viewMenu;
@@ -167,7 +168,7 @@ public class HotelReservation_USER extends Application
 
 	private void buildAddReservationMenu(Stage primaryStage)
 	{
-		addReservationMenu = new Menu("Add Reservation");
+		addReservationMenu = new Menu("Reservation");
 		addAll = new MenuItem("Add");
 		
 		addReservationMenu.getItems().add(addAll);
