@@ -195,6 +195,10 @@ public class HotelReservation_USER extends Application
 		guestAddVBox = new VBox(10, addGuestHeading, guestIDHBox, guestNameHbox, guestPhoneHbox, guestEmailHbox);
 		
 		// Room Box
+		addRoomHeading = new Label("Room");
+		addRoomHeading.getStyleClass().add("heading");
+		
+		
 		
 		
 		
