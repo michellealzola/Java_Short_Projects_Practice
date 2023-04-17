@@ -225,12 +225,38 @@ public class HotelReservation_USER extends Application
 		addGuestRoomHBox = new HBox(10, guestAddVBox, roomAddVBox);
 		
 		// Booking box
+		addBookingHeading = new Label("Booking");
+		addBookingHeading.getStyleClass().add("heading");
 		
+		bookingIDLabel = new Label("Booking ID:");
+		bookingIDTextField = new TextField();
+		bookingIDHbox = new HBox(10, bookingIDLabel, bookingIDTextField);
 		
+		bookingRoomIDLabel = new Label("Room ID:");
+		bookingRoomIDTextField = new TextField();
+		bookingRoomIDHbox = new HBox(10, bookingRoomIDLabel, bookingRoomIDTextField);
+		
+		bookingGuestIDLabel = new Label("Guest ID");
+		bookingGuestIDTextField = new TextField();
+		bookingGuestIDHbox = new HBox(10, bookingGuestIDLabel, bookingGuestIDTextField);
+		
+		bookingCheckInLabel = new Label("Check-in");
+		bookingCheckIn = new DatePicker();
+		bookingCheckInHbox = new HBox(10, bookingCheckInLabel, bookingCheckIn);
+		
+		bookingCheckOutLabel = new Label("Check-out");
+		bookingCheckOut = new DatePicker();
+		bookingCheckOutHbox = new HBox(10, bookingCheckOutLabel, bookingCheckOut);
+		
+		roomBookingVBox = new VBox(10, addBookingHeading, bookingIDHbox, bookingRoomIDHbox, bookingGuestIDHbox, bookingCheckInHbox, bookingCheckOutHbox);
+		roomBookingVBox.setPadding(new Insets(10));
+		
+		addGuestRoomBookingVBox = new VBox(10, addGuestRoomHBox, roomBookingVBox);
+		addGuestRoomBookingVBox.setPadding(new Insets(25));
 		
 		addAll.setOnAction(event -> 
 		{
-			borderPane.setCenter(addGuestRoomHBox);
+			borderPane.setCenter(addGuestRoomBookingVBox);
 		});
 		
 	}
