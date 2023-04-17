@@ -1,6 +1,7 @@
 package database_projects;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -177,40 +178,57 @@ public class HotelReservation_USER extends Application
 		addGuestHeading = new Label("Guest");
 		addGuestHeading.getStyleClass().add("heading");
 		
-		guestIDLabel = new Label("ID:");
+		guestIDLabel = new Label("Guest ID:");
 		guestIDTextField = new TextField();
 		guestIDHBox = new HBox(10, guestIDLabel, guestIDTextField);
 		
-		guestNameLabel = new Label("Name:");
+		guestNameLabel = new Label("Guest Name:");
 		guestNameTextField = new TextField();
 		guestNameHbox = new HBox(10, guestNameLabel, guestNameTextField);
 		
-		guestPhoneLabel = new Label("Phone:");
+		guestPhoneLabel = new Label("Guest Phone:");
 		guestPhoneTextField = new TextField();
 		guestPhoneHbox = new HBox(10, guestPhoneLabel, guestPhoneTextField);
 		
-		guestEmailLabel = new Label("Email:");
+		guestEmailLabel = new Label("Guest Email:");
 		guestEmailTextField = new TextField();;
 		guestEmailHbox = new HBox(10, guestEmailLabel, guestEmailTextField);
 		
 		guestAddVBox = new VBox(10, addGuestHeading, guestIDHBox, guestNameHbox, guestPhoneHbox, guestEmailHbox);
+		guestAddVBox.setPadding(new Insets(10));
 		
 		// Room Box
 		addRoomHeading = new Label("Room");
 		addRoomHeading.getStyleClass().add("heading");
 		
+		roomIDLabel = new Label("Room ID:");
+		roomIDTextField = new TextField();
+		roomIDHbox = new HBox(10, roomIDLabel, roomIDTextField);
 		
+		roomNumLabel = new Label("Room Number:");
+		roomNumTextField = new TextField();
+		roomNumHbox = new HBox(10, roomNumLabel, roomNumTextField);
 		
+		roomTypeLabel = new Label("Room Type:");
+		roomTypeTextField = new TextField();
+		roomTypeHbox = new HBox(10, roomTypeLabel, roomTypeTextField);
 		
+		roomPriceLabel = new Label("Room Price:");
+		roomPriceTextField = new TextField();
+		roomPriceHbox = new HBox(10, roomPriceLabel, roomPriceTextField);
 		
-		addGuestRoomHBox = new HBox(guestAddVBox);
+		roomAddVBox = new VBox(10, addRoomHeading, roomIDHbox, roomNumHbox, roomTypeHbox, roomPriceHbox);
+		roomAddVBox.setPadding(new Insets(10));
+		
+		addGuestRoomHBox = new HBox(10, guestAddVBox, roomAddVBox);
+		
 		// Booking box
 		
 		
 		
 		addAll.setOnAction(event -> 
 		{
-			borderPane.setCenter(guestAddVBox);
+			borderPane.setCenter(addGuestRoomHBox);
 		});
 		
 	}

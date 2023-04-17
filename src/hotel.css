@@ -7,7 +7,7 @@
 {
     -fx-font-family:'NanumGothicCoding';
     -fx-font-size: 13pt;
-    -fx-background-color: #E6EAED;
+    -fx-background-color: #FFEFD5;
     -fx-color: white;
 }
 
@@ -20,12 +20,13 @@
 
 .heading
 {
-	-fx-font-size: 16pt;
+	-fx-font-size: 18pt;
 	-fx-underline: true;
+	-fx-text-fill: #333300;
 }
 
 .text-field
 {
 	-fx-font-size: 13pt;
-	-fx-pref-width: 300px;
+	-fx-pref-width: 400px;
 }
