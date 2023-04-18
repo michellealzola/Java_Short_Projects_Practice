@@ -202,7 +202,9 @@ public class HotelReservation_USER extends Application
 		guestEmailTextField = new TextField();;
 		guestEmailHbox = new HBox(10, guestEmailLabel, guestEmailTextField);
 		
-		guestAddVBox = new VBox(10, addGuestHeading, guestIDHBox, guestNameHbox, guestPhoneHbox, guestEmailHbox);
+		guestAddResult = new Label();
+		
+		guestAddVBox = new VBox(10, addGuestHeading, guestIDHBox, guestNameHbox, guestPhoneHbox, guestEmailHbox, guestAddResult);
 		guestAddVBox.setPadding(new Insets(10));
 		
 		// Room Box
@@ -225,7 +227,9 @@ public class HotelReservation_USER extends Application
 		roomPriceTextField = new TextField();
 		roomPriceHbox = new HBox(10, roomPriceLabel, roomPriceTextField);
 		
-		roomAddVBox = new VBox(10, addRoomHeading, roomIDHbox, roomNumHbox, roomTypeHbox, roomPriceHbox);
+		roomAddResult = new Label();
+		
+		roomAddVBox = new VBox(10, addRoomHeading, roomIDHbox, roomNumHbox, roomTypeHbox, roomPriceHbox, roomAddResult);
 		roomAddVBox.setPadding(new Insets(10));
 		
 		addGuestRoomHBox = new HBox(10, guestAddVBox, roomAddVBox);
@@ -249,9 +253,16 @@ public class HotelReservation_USER extends Application
 		roomBookingVBox = new VBox(10, addBookingHeading, bookingIDHbox, bookingCheckInHbox, bookingCheckOutHbox);
 		roomBookingVBox.setPadding(new Insets(10));
 		
+		bookingAddResult = new Label();
+		
 		addReservationButton = new Button("Add Reservation");
 		
-		addGuestRoomBookingVBox = new VBox(10, addGuestRoomHBox, roomBookingVBox, addReservationButton);
+		addReservationButton.setOnAction(event -> 
+		{
+			
+		});
+		
+		addGuestRoomBookingVBox = new VBox(10, addGuestRoomHBox, roomBookingVBox, addReservationButton, bookingAddResult);
 		addGuestRoomBookingVBox.setPadding(new Insets(25));		
 		
 		addAll.setOnAction(event -> 
