@@ -27,7 +27,7 @@ public class HotelReservationDB_MANAGER
 		pstmt.close();
 		conn.close();
 		
-		return rows + " row(s) added to the table";
+		return rows + " row(s) added to the Guest table";
 		
 	}
 	
@@ -50,7 +50,7 @@ public class HotelReservationDB_MANAGER
 		pstmt.close();
 		conn.close();
 		
-		return rows + " row(s) added to the table";
+		return rows + " row(s) added to the Room table";
 		
 	}
 	
@@ -74,7 +74,7 @@ public class HotelReservationDB_MANAGER
 		pstmt.close();
 		conn.close();
 		
-		return rows + " row(s) added to the table";
+		return rows + " row(s) added to the Booking table";
 		
 	}
 }
