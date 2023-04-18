@@ -47,6 +47,8 @@ public class HotelReservation_USER extends Application
 		private TextField guestEmailTextField;
 		private HBox guestEmailHbox;
 		
+		private Label guestAddResult;
+		
 		private VBox guestAddVBox;
 	
 		// [Add Reservation Menu] - Room Interface -
@@ -68,6 +70,8 @@ public class HotelReservation_USER extends Application
 		private Label roomPriceLabel;
 		private TextField roomPriceTextField;
 		private HBox roomPriceHbox;
+		
+		private Label roomAddResult;
 		
 		private VBox roomAddVBox;
 		
@@ -96,6 +100,8 @@ public class HotelReservation_USER extends Application
 		private Label bookingCheckOutLabel;
 		private DatePicker bookingCheckOut;
 		private HBox bookingCheckOutHbox;
+		
+		private Label bookingAddResult;
 		
 		private VBox roomBookingVBox;
 	
