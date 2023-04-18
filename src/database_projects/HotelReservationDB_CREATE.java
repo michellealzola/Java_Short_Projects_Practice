@@ -79,16 +79,17 @@ public class HotelReservationDB_CREATE
 		{
 			Statement stmt = conn.createStatement();
 			
-			stmt.execute("CREATE TABLE Guest "
-						+ "(id INT NOT NULL PRIMARY KEY, "
-						+ "guest_name VARCHAR(50) NOT NULL, "
-						+ "guest_phone VARCHAR(15) NOT NULL, "
-						+ "guest_email VARCHAR(50) NOT NULL)");
+			stmt.execute("CREATE TABLE Guest (\r\n"
+					+ "    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\r\n"
+					+ "    guest_name VARCHAR(50) NOT NULL,\r\n"
+					+ "    guest_phone VARCHAR(15) NOT NULL,\r\n"
+					+ "    guest_email VARCHAR(50) NOT NULL\r\n"
+					+ ")");
 			
-			stmt.execute("INSERT INTO Guest VALUES (1, 'John Doe', '123-456-7890', 'john.doe@example.com')");
-			stmt.execute("INSERT INTO Guest VALUES (2, 'Jane Smith', '456-789-0123', 'jane.smith@example.com')");
-			stmt.execute("INSERT INTO Guest VALUES (3, 'Bob Johnson', '789-012-3456', 'bob.johnson@example.com')");
-			stmt.execute("INSERT INTO Guest VALUES (4, 'Alice Brown', '012-345-6789', 'alice.brown@example.com')");
+			stmt.execute("INSERT INTO Guest (guest_name, guest_phone, guest_email) VALUES ('John Doe', '123-456-7890', 'john.doe@example.com')");
+			stmt.execute("INSERT INTO Guest (guest_name, guest_phone, guest_email) VALUES ('Jane Smith', '456-789-0123', 'jane.smith@example.com')");
+			stmt.execute("INSERT INTO Guest (guest_name, guest_phone, guest_email) VALUES ('Bob Johnson', '789-012-3456', 'bob.johnson@example.com')");
+			stmt.execute("INSERT INTO Guest (guest_name, guest_phone, guest_email) VALUES ('Alice Brown', '012-345-6789', 'alice.brown@example.com')");
 			
 			System.out.println("Guest table created.");
 		} 
@@ -106,18 +107,19 @@ public class HotelReservationDB_CREATE
 		{
 			Statement stmt = conn.createStatement();
 			
-			stmt.execute("CREATE TABLE Room "
-						+ "(id INT NOT NULL PRIMARY KEY, "
-						+ "room_number INT NOT NULL, "
-						+ "room_type VARCHAR(50) NOT NULL, "
-						+ "room_price DECIMAL(10, 2) NOT NULL)");
+			stmt.execute("CREATE TABLE Room (\r\n"
+					+ "    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\r\n"
+					+ "    room_number INT NOT NULL,\r\n"
+					+ "    room_type VARCHAR(50) NOT NULL,\r\n"
+					+ "    room_price DECIMAL(10, 2) NOT NULL\r\n"
+					+ ")");
 			
-			stmt.execute("INSERT INTO Room VALUES (1, 101, 'Standard', 100)");
-			stmt.execute("INSERT INTO Room VALUES (2, 102, 'Standard', 100)");
-			stmt.execute("INSERT INTO Room VALUES (3, 201, 'Deluxe', 150)");
-			stmt.execute("INSERT INTO Room VALUES (4, 202, 'Deluxe', 150)");
-			stmt.execute("INSERT INTO Room VALUES (5, 301, 'Suite', 250)");
-			stmt.execute("INSERT INTO Room VALUES (6, 302, 'Suite', 250)");
+			stmt.execute("INSERT INTO Room (room_number, room_type, room_price) VALUES (101, 'Standard', 100)");
+			stmt.execute("INSERT INTO Room (room_number, room_type, room_price) VALUES (102, 'Standard', 100)");
+			stmt.execute("INSERT INTO Room (room_number, room_type, room_price) VALUES (201, 'Deluxe', 150)");
+			stmt.execute("INSERT INTO Room (room_number, room_type, room_price) VALUES (202, 'Deluxe', 150)");
+			stmt.execute("INSERT INTO Room (room_number, room_type, room_price) VALUES (301, 'Suite', 250)");
+			stmt.execute("INSERT INTO Room (room_number, room_type, room_price) VALUES (302, 'Suite', 250)");
 			
 			System.out.println("Room table created.");
 		} 
@@ -136,22 +138,23 @@ public class HotelReservationDB_CREATE
 		{
 			Statement stmt = conn.createStatement();
 			
-			stmt.execute("CREATE TABLE Booking "
-						+ "(id INT NOT NULL PRIMARY KEY, "
-						+ "room_id INT NOT NULL, "
-						+ "guest_id INT NOT NULL, "
-						+ "check_in DATE NOT NULL, "
-						+ "check_out DATE NOT NULL, "
-						+ "CONSTRAINT fk_booking_room FOREIGN KEY (room_id) REFERENCES Room (id) ON DELETE CASCADE, "
-						+ "CONSTRAINT fk_booking_guest FOREIGN KEY (guest_id) REFERENCES Guest (id) ON DELETE CASCADE, "
-						+ "CONSTRAINT chk_booking_dates CHECK (check_out >= check_in))");
+			stmt.execute("CREATE TABLE Booking (\r\n"
+					+ "    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\r\n"
+					+ "    room_id INT NOT NULL,\r\n"
+					+ "    guest_id INT NOT NULL,\r\n"
+					+ "    check_in DATE NOT NULL,\r\n"
+					+ "    check_out DATE NOT NULL,\r\n"
+					+ "    CONSTRAINT fk_booking_room FOREIGN KEY (room_id) REFERENCES Room (id) ON DELETE CASCADE,\r\n"
+					+ "    CONSTRAINT fk_booking_guest FOREIGN KEY (guest_id) REFERENCES Guest (id) ON DELETE CASCADE,\r\n"
+					+ "    CONSTRAINT chk_booking_dates CHECK (check_out >= check_in)\r\n"
+					+ ")");
 			
-			stmt.execute("INSERT INTO Booking VALUES (1, 1, 1, '2023-05-01', '2023-05-03')");
-			stmt.execute("INSERT INTO Booking VALUES (2, 2, 2, '2023-05-02', '2023-05-04')");
-			stmt.execute("INSERT INTO Booking VALUES (3, 3, 3, '2023-05-05', '2023-05-07')");
-			stmt.execute("INSERT INTO Booking VALUES (4, 4, 4, '2023-05-08', '2023-05-10')");
-			stmt.execute("INSERT INTO Booking VALUES (5, 5, 1, '2023-05-15', '2023-05-20')");
-			stmt.execute("INSERT INTO Booking VALUES (6, 6, 2, '2023-06-01', '2023-06-03')");
+			stmt.execute("INSERT INTO Booking (room_id, guest_id, check_in, check_out) VALUES (1, 1, '2023-05-01', '2023-05-03')");
+			stmt.execute("INSERT INTO Booking (room_id, guest_id, check_in, check_out) VALUES (2, 2, '2023-05-02', '2023-05-04')");
+			stmt.execute("INSERT INTO Booking (room_id, guest_id, check_in, check_out) VALUES (3, 3, '2023-05-05', '2023-05-07')");
+			stmt.execute("INSERT INTO Booking (room_id, guest_id, check_in, check_out) VALUES (4, 4, '2023-05-08', '2023-05-10')");
+			stmt.execute("INSERT INTO Booking (room_id, guest_id, check_in, check_out) VALUES (5, 1, '2023-05-15', '2023-05-20')");
+			
 			
 			System.out.println("Booking table created.");
 		} 
