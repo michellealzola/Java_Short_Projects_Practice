@@ -8,7 +8,7 @@ public class HotelReservationDB_MANAGER
 {
 	private final static String DB_URL = "jdbc:derby:HotelReservationDB";
 	
-	public String addGuest(int guest_id, String guest_name, String guest_phone, String guest_email) throws SQLException
+	public static String addGuest(int guest_id, String guest_name, String guest_phone, String guest_email) throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(DB_URL);
 		
@@ -31,7 +31,7 @@ public class HotelReservationDB_MANAGER
 		
 	}
 	
-	public String addRoom(int room_id, int room_num, String room_type, double room_price) throws SQLException
+	public static String addRoom(int room_id, int room_num, String room_type, double room_price) throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(DB_URL);
 		
@@ -54,7 +54,7 @@ public class HotelReservationDB_MANAGER
 		
 	}
 	
-	public String addBooking(int booking_id, int room_id, int guest_id, Date check_in, Date check_out) throws SQLException
+	public static String addBooking(int booking_id, int room_id, int guest_id, Date check_in, Date check_out) throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(DB_URL);
 		

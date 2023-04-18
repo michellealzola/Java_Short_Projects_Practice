@@ -1,5 +1,9 @@
 package database_projects;
 
+import java.sql.Date;
+import java.sql.SQLException;
+import java.time.LocalDate;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -259,7 +263,32 @@ public class HotelReservation_USER extends Application
 		
 		addReservationButton.setOnAction(event -> 
 		{
-			
+			try
+			{
+				guestAddResult.setText(HotelReservationDB_MANAGER.addGuest(Integer.parseInt(guestIDTextField.getText()), 
+						guestNameTextField.getText(), guestPhoneTextField.getText(), guestEmailTextField.getText()));
+				
+				roomAddResult.setText(HotelReservationDB_MANAGER.addRoom(Integer.parseInt(roomIDTextField.getText()), 
+						Integer.parseInt(roomNumTextField.getText()), roomTypeTextField.getText(), 
+						Double.parseDouble(roomPriceTextField.getText())));
+				
+				LocalDate checkInDate = bookingCheckIn.getValue();
+				LocalDate checkOutDate = bookingCheckOut.getValue();
+				
+				bookingAddResult.setText(HotelReservationDB_MANAGER.addBooking(Integer.parseInt(bookingIDTextField.getText()),
+						Integer.parseInt(roomIDTextField.getText()), Integer.parseInt(guestIDTextField.getText()), 
+						Date.valueOf(checkInDate), Date.valueOf(checkOutDate)));
+			} 
+			catch (NumberFormatException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		addGuestRoomBookingVBox = new VBox(10, addGuestRoomHBox, roomBookingVBox, addReservationButton, bookingAddResult);
