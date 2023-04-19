@@ -187,117 +187,16 @@ public class HotelReservation_USER2 extends Application
 		addReservationMenu.getItems().add(addAll);
 		
 		// Guest Box
-		addGuestHeading = new Label("Guest");
-		addGuestHeading.getStyleClass().add("heading");
 		
-		guestIDLabel = new Label("Guest ID:");
-		guestIDTextField = new TextField();
-		guestIDHBox = new HBox(10, guestIDLabel, guestIDTextField);
 		
-		guestNameLabel = new Label("Guest Name:");
-		guestNameTextField = new TextField();
-		guestNameHbox = new HBox(10, guestNameLabel, guestNameTextField);
+		// Date Picker
 		
-		guestPhoneLabel = new Label("Guest Phone:");
-		guestPhoneTextField = new TextField();
-		guestPhoneHbox = new HBox(10, guestPhoneLabel, guestPhoneTextField);
 		
-		guestEmailLabel = new Label("Guest Email:");
-		guestEmailTextField = new TextField();;
-		guestEmailHbox = new HBox(10, guestEmailLabel, guestEmailTextField);
+		// Room Box with ListView
 		
-		guestAddResult = new Label();
-		
-		guestAddVBox = new VBox(10, addGuestHeading, guestIDHBox, guestNameHbox, guestPhoneHbox, guestEmailHbox, guestAddResult);
-		guestAddVBox.setPadding(new Insets(10));
-		
-		// Room Box
-		addRoomHeading = new Label("Room");
-		addRoomHeading.getStyleClass().add("heading");
-		
-		roomIDLabel = new Label("Room ID:");
-		roomIDTextField = new TextField();
-		roomIDHbox = new HBox(10, roomIDLabel, roomIDTextField);
-		
-		roomNumLabel = new Label("Room Number:");
-		roomNumTextField = new TextField();
-		roomNumHbox = new HBox(10, roomNumLabel, roomNumTextField);
-		
-		roomTypeLabel = new Label("Room Type:");
-		roomTypeTextField = new TextField();
-		roomTypeHbox = new HBox(10, roomTypeLabel, roomTypeTextField);
-		
-		roomPriceLabel = new Label("Room Price:");
-		roomPriceTextField = new TextField();
-		roomPriceHbox = new HBox(10, roomPriceLabel, roomPriceTextField);
-		
-		roomAddResult = new Label();
-		
-		roomAddVBox = new VBox(10, addRoomHeading, roomIDHbox, roomNumHbox, roomTypeHbox, roomPriceHbox, roomAddResult);
-		roomAddVBox.setPadding(new Insets(10));
-		
-		addGuestRoomHBox = new HBox(10, guestAddVBox, roomAddVBox);
 		
 		// Booking box
-		addBookingHeading = new Label("Booking");
-		addBookingHeading.getStyleClass().add("heading");
 		
-		bookingIDLabel = new Label("Booking ID:");
-		bookingIDTextField = new TextField();
-		bookingIDHbox = new HBox(10, bookingIDLabel, bookingIDTextField);
-		
-		bookingCheckInLabel = new Label("Check-in");
-		bookingCheckIn = new DatePicker();
-		bookingCheckInHbox = new HBox(10, bookingCheckInLabel, bookingCheckIn);
-		
-		bookingCheckOutLabel = new Label("Check-out");
-		bookingCheckOut = new DatePicker();
-		bookingCheckOutHbox = new HBox(10, bookingCheckOutLabel, bookingCheckOut);
-		
-		roomBookingVBox = new VBox(10, addBookingHeading, bookingIDHbox, bookingCheckInHbox, bookingCheckOutHbox);
-		roomBookingVBox.setPadding(new Insets(10));
-		
-		bookingAddResult = new Label();
-		
-		addReservationButton = new Button("Add Reservation");
-		
-		addReservationButton.setOnAction(event -> 
-		{
-			try
-			{
-				guestAddResult.setText(HotelReservationDB_MANAGER.addGuest(Integer.parseInt(guestIDTextField.getText()), 
-						guestNameTextField.getText(), guestPhoneTextField.getText(), guestEmailTextField.getText()));
-				
-				roomAddResult.setText(HotelReservationDB_MANAGER.addRoom(Integer.parseInt(roomIDTextField.getText()), 
-						Integer.parseInt(roomNumTextField.getText()), roomTypeTextField.getText(), 
-						Double.parseDouble(roomPriceTextField.getText())));
-				
-				LocalDate checkInDate = bookingCheckIn.getValue();
-				LocalDate checkOutDate = bookingCheckOut.getValue();
-				
-				bookingAddResult.setText(HotelReservationDB_MANAGER.addBooking(Integer.parseInt(bookingIDTextField.getText()),
-						Integer.parseInt(roomIDTextField.getText()), Integer.parseInt(guestIDTextField.getText()), 
-						Date.valueOf(checkInDate), Date.valueOf(checkOutDate)));
-			} 
-			catch (NumberFormatException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-			catch (SQLException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		});
-		
-		addGuestRoomBookingVBox = new VBox(10, addGuestRoomHBox, roomBookingVBox, addReservationButton, bookingAddResult);
-		addGuestRoomBookingVBox.setPadding(new Insets(25));		
-		
-		addAll.setOnAction(event -> 
-		{
-			borderPane.setCenter(addGuestRoomBookingVBox);
-		});
 		
 	}
 
